@@ -87,29 +87,27 @@ README.md
 <details><summary>「.env」ファイルの変更案参考</summary>
 
     
-24: DB_CONNECTION=mysql
-25: DB_HOST=127.0.0.1
-26: DB_PORT=3306
-27: DB_DATABASE=book_management_db
-28: DB_USERNAME=bookuser
-29: DB_PASSWORD=bookpassword    
+24: DB_CONNECTION=mysql<br>
+25: DB_HOST=127.0.0.1<br>
+26: DB_PORT=3306<br>
+27: DB_DATABASE=book_management_db<br>
+28: DB_USERNAME=bookuser<br>
+29: DB_PASSWORD=bookpassword<br>
 
 31: ~~SESSION_DRIVER=database~~
 
 31:=> SESSION_DRIVER=file 
 
-
-
 </details>
+
 ---
+
 <details>
     <summary>PHP, Laravel関連のVSCode拡張機能メモ</summary>
 
 ■Laravel拡張機能
 - Laravel Extension Pack / (Winnie Lin)  ...Laravelの開発に有用な拡張機能13個の詰め合わせ
 
-
-<br>
 <br>
 <br>
     
