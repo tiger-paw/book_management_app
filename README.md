@@ -1,4 +1,219 @@
-# コーディング規則（仮）
+
+
+<details><summary>
+編集結果をGitHubへ反映させる確認 [1月27日(月)]
+    
+</summary>    
+1. 事前準備:   現在の作業すべてを一旦コミットしておく => プッシュする
+
+■ステージング
+```
+git add .
+```
+
+■コミット
+```
+git commit -m "新しいブランチを作成するためにコミット"
+```
+
+■プル
+```
+git pull origin main
+```
+準備完了
+
+
+2. 各々がローカル環境のmainブランチにて、以下の[]内に`OK`を入力し、`add => commit => push` する
+
+- [] リーダー
+- [] サブリーダー
+- [] ドキュメント管理
+- [] 書記
+
+<details>
+<summary>上記2.`add => commit => push`の手順(詳細)</summary>
+    
+#0. 現在のブランチを確認する(*が現在のブランチ)
+    
+```    
+git branch
+```
+
+#1. 編集してみる
+README.mdファイルに`OK`と入力
+
+```md
+- [OK] リーダー
+```
+
+#2. ステージングする(コミットするファイルを登録する)
+
+```
+git add README.md
+```
+
+#3. コミットする（登録したファイルの変更履歴をローカルリポジトリに記録する）
+
+```
+git commit -m "OKを追加"
+```
+
+#4. プッシュする（ローカルリポジトリの変更をリモートリポジトリへ反映させる）
+
+```
+git push
+```
+#5. GitHub(リモートリポジトリ[origin/main])に変更が反映された
+
+#6. 他の人の変更をリモートリポジトリからローカルリポジトリに取り込む(プル)
+
+```
+git pull origin main
+```
+
+#7. VSCodeにて他の人の変更が取り込まれたことを確認できる
+README.md
+```
+- [OK] リーダー
+- [OK] サブリーダー
+- [OK] ドキュメント管理
+- [OK] 書記
+
+```
+##### 以上 ###############
+
+</details>
+    
+</details>
+
+
+<details><summary>「.env」ファイルの変更案参考</summary>
+
+    
+24: DB_CONNECTION=mysql
+
+25: DB_HOST=127.0.0.1
+
+26: DB_PORT=3306
+
+27: DB_DATABASE=book_management_db
+
+28: DB_USERNAME=bookuser
+
+29: DB_PASSWORD=bookpassword    
+
+31: ~~SESSION_DRIVER=database~~
+
+31:=> SESSION_DRIVER=file 
+
+
+
+</details>
+
+
+<details>
+    <summary>PHP, Laravel関連のVSCode拡張機能メモ</summary>
+
+■Laravel拡張機能
+- Laravel Extension Pack / (Winnie Lin)  ...Laravelの開発に有用な拡張機能13個の詰め合わせ
+
+
+<br>
+<br>
+<br>
+    
+~~■PHP拡張機能~~
+~~- PHP Intelephense : 高機能な構文チェックやコード補完機能が使えるようになるが、~~  
+~~「PHP Intelephense」を使用するためには、VSCodeに組み込まれている「PHP 言語機能」を無効にする必要あり。~~
+
+~~手順は以下の通り。~~
+
+~~1. VSCodeで拡張機能の一覧を開く~~
+~~2. 「@builtin php」と検索する~~
+~~3. 「PHP 言語機能」を無効にする。「PHP の基本言語サポート」は有効のままでOK。~~
+
+    
+</details>
+
+
+<details><summary>Git開発手順</summary>
+以下は、Gitを使用して4人のチームが機能ごとにブランチを分けて開発を進める手順です。git-flowは使用せず、mainブランチと機能ブランチの2つの関係で行います。
+
+### 1. リポジトリのクローン
+まず、リポジトリをクローンします。
+```bash
+git clone <リポジトリURL>
+cd <リポジトリ名>
+```
+
+### 2. ブランチの作成
+各メンバーは自分の機能ブランチを作成します。
+```bash
+git checkout -b feature/<機能名>
+```
+
+### 3. 開発作業
+各自の機能ブランチで開発を進めます。
+```bash
+git add .
+git commit -m "Add <機能名> feature"
+```
+
+### 4. リモートリポジトリへのプッシュ
+作業が完了したら、リモートリポジトリにプッシュします。
+```bash
+git push origin feature/<機能名>
+```
+
+### 5. プルリクエストの作成
+GitHubなどのプラットフォームでプルリクエストを作成し、mainブランチへのマージをリクエストします。
+
+### 6. コードレビューとマージ
+他のメンバーがコードレビューを行い、問題がなければmainブランチにマージします。
+
+### 7. mainブランチの更新
+mainブランチを最新の状態に保つために、定期的にmainブランチをプルします。
+```bash
+git checkout main
+git pull origin main
+```
+
+### 8. 機能ブランチの更新
+mainブランチの変更を自分の機能ブランチに取り込みます。
+```bash
+git checkout feature/<機能名>
+git merge main
+```
+
+### 9. コンフリクトの解消
+マージ時にコンフリクトが発生した場合は、手動で解消します。
+```bash
+# コンフリクトを解消した後
+git add .
+git commit -m "Resolve merge conflicts"
+```
+
+### 10. 繰り返し
+上記の手順を繰り返して開発を進めます。
+
+これで、各メンバーが機能ごとにブランチを分けて開発を進めながら、mainブランチに随時更新していくことができます。
+
+</details>
+
+
+
+<details><summary>2025年1月24日(金)メモ</summary>
+    - GitHubのエラーは、再度新しいリポジトリをpublicで作成することで解決
+    - 招待されたメールから「Accept invitation」を押下を忘れていたかも
+
+</details>
+
+
+<details>
+<summary>
+ コーディング規則（仮）
+</summary>
+    
 
 本プロジェクトのコーディング規則は、以下の通り。
 
@@ -75,7 +290,65 @@
 
 ---
 
-### 7. **その他のルール**
+</details>
 
--   スクリプトや一時的な変数名にはアンダースコアは使わない。
--   可読性を重視し、短すぎたり曖昧な名前は避ける。
+---
+
+## テーブル設計
+
+### users
+| 名前             | タイプ           | 属性       | NULL許容 | デフォルト値 | その他          |
+|------------------|------------------|------------|------|--------------|-----------------|
+| u_id (PK)          | bigint          | UNSIGNED   | いいえ | なし         | AUTO_INCREMENT  |
+| u_name           | varchar(255)    |            | いいえ | なし         |                 |
+| password         | varchar(255)    |            | いいえ | なし         |                 |
+| d_id (FK)        | bigint          | UNSIGNED   | いいえ | なし         |                 |
+| user_code        | varchar(255)    |            | いいえ | なし         |                 |
+| remember_token   | varchar(100)    |            | はい   | NULL         |                 |
+| created_at       | timestamp       |            | はい   | NULL         |                 |
+| updated_at       | timestamp       |            | はい   | NULL         |                 |
+
+---
+
+### departments
+| 名前              | タイプ           | 属性       | NULL許容 | デフォルト値 | その他          |
+|-------------------|------------------|------------|------|--------------|-----------------|
+| d_id (PK)           | bigint          | UNSIGNED   | いいえ | なし         | AUTO_INCREMENT  |
+| d_name            | varchar(255)    |            | いいえ | なし         |                 |
+| department_code   | varchar(255)    |            | いいえ | なし         |                 |
+| created_at        | timestamp       |            | はい   | NULL         |                 |
+| updated_at        | timestamp       |            | はい   | NULL         |                 |
+
+---
+
+### books
+| 名前              | タイプ           | 属性       | NULL許容 | デフォルト値 | その他          |
+|-------------------|------------------|------------|------|--------------|-----------------|
+| b_id (PK)           | bigint          | UNSIGNED   | いいえ | なし         | AUTO_INCREMENT  |
+| title             | varchar(255)    |            | いいえ | なし         |                 |
+| author            | varchar(255)    |            | はい   | NULL         |                 |
+| description       | text            |            | はい   | NULL         |                 |
+| published_date    | date            |            | はい   | NULL         |                 |
+| ISBN              | varchar(255)    |            | はい   | NULL         |                 |
+| image_url         | varchar(255)    |            | はい   | NULL         |                 |
+| created_at        | timestamp       |            | はい   | NULL         |                 |
+| updated_at        | timestamp       |            | はい   | NULL         |                 |
+
+---
+
+### reviews
+
+| 名前              | タイプ           | 属性       | NULL許容 | デフォルト値 | その他          |
+|-------------------|------------------|------------|------|--------------|-----------------|
+| r_id (PK)           | bigint          | UNSIGNED   | いいえ | なし         | AUTO_INCREMENT  |
+| rating            | tinyint         | UNSIGNED   | いいえ | なし         |                 |
+| comment           | text            |            | いいえ | なし         |                 |
+| u_id (FK) | bigint          | UNSIGNED   | いいえ | なし         |                 |
+| b_id (FK) | bigint          | UNSIGNED   | いいえ | なし         |                 |
+| created_at        | timestamp       |            | はい   | NULL         |                 |
+| updated_at        | timestamp       |            | はい   | NULL         |                 |
+
+
+
+
+
