@@ -1,4 +1,55 @@
+<details>
+<summary>コマンドなど</summary>
 
+
+パッケージのインストール
+```
+composer install
+```
+
+環境設定ファイルの作成
+```
+cp .env.example .env
+```
+
+アプリケーションキーの生成
+```
+php artisan key:generate
+```
+
+データベースの設定(.envファイル)
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=データベース名
+DB_USERNAME=ユーザー名
+DB_PASSWORD=パスワード
+
+```
+
+データベースマイグレーション
+```
+php artisan migrate
+
+```
+
+シーダー実行
+```
+php artisan db:seed
+```
+
+（キャッシュのクリア）
+```
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+php artisan view:clear
+
+```
+
+
+</details>
 
 <details><summary>
 編集結果をGitHubへ反映させる確認 [1月27日(月)]
