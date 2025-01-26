@@ -1,27 +1,28 @@
-## 編集結果をGitHubへ反映させる確認 [1月27日(月)]
-#### 1. 事前準備:   現在の作業すべてを一旦コミットしておく => プッシュする
 
-ステージング
+<details><summary>
+編集結果をGitHubへ反映させる確認 [1月27日(月)]
+    
+</summary>    
+1. 事前準備:   現在の作業すべてを一旦コミットしておく => プッシュする
+
+■ステージング
 ```
 git add .
 ```
 
-コミット
+■コミット
 ```
 git commit -m "新しいブランチを作成するためにコミット"
 ```
 
-プル
+■プル
 ```
 git pull origin main
 ```
+準備完了
 
 
-##### 準備完了
-
----
-
-#### 2. 各々がローカル環境のmainブランチにて、以下の[]内に`OK`を入力し、`add => commit => push` する
+2. 各々がローカル環境のmainブランチにて、以下の[]内に`OK`を入力し、`add => commit => push` する
 
 - [] リーダー
 - [] サブリーダー
@@ -29,7 +30,8 @@ git pull origin main
 - [] 書記
 
 <details>
-<summary>上記2.の手順(詳細)</summary>
+<summary>上記2.`add => commit => push`の手順(詳細)</summary>
+    
 #0. 現在のブランチを確認する(*が現在のブランチ)
     
 ```    
@@ -67,6 +69,7 @@ git push
 ```
 git pull origin main
 ```
+
 #7. VSCodeにて他の人の変更が取り込まれたことを確認できる
 README.md
 ```
@@ -75,32 +78,37 @@ README.md
 - [OK] ドキュメント管理
 - [OK] 書記
 
+```
 ##### 以上 ###############
 
-```
+</details>
     
 </details>
 
 
----
-
 <details><summary>「.env」ファイルの変更案参考</summary>
 
     
-24: DB_CONNECTION=mysql<br>
-25: DB_HOST=127.0.0.1<br>
-26: DB_PORT=3306<br>
-27: DB_DATABASE=book_management_db<br>
-28: DB_USERNAME=bookuser<br>
-29: DB_PASSWORD=bookpassword<br>
+24: DB_CONNECTION=mysql
+
+25: DB_HOST=127.0.0.1
+
+26: DB_PORT=3306
+
+27: DB_DATABASE=book_management_db
+
+28: DB_USERNAME=bookuser
+
+29: DB_PASSWORD=bookpassword    
 
 31: ~~SESSION_DRIVER=database~~
 
 31:=> SESSION_DRIVER=file 
 
+
+
 </details>
 
----
 
 <details>
     <summary>PHP, Laravel関連のVSCode拡張機能メモ</summary>
@@ -108,6 +116,8 @@ README.md
 ■Laravel拡張機能
 - Laravel Extension Pack / (Winnie Lin)  ...Laravelの開発に有用な拡張機能13個の詰め合わせ
 
+
+<br>
 <br>
 <br>
     
@@ -124,9 +134,6 @@ README.md
     
 </details>
 
-
----
----
 
 <details><summary>Git開発手順</summary>
 以下は、Gitを使用して4人のチームが機能ごとにブランチを分けて開発を進める手順です。git-flowは使用せず、mainブランチと機能ブランチの2つの関係で行います。
@@ -192,8 +199,7 @@ git commit -m "Resolve merge conflicts"
 
 </details>
 
----
----
+
 
 <details><summary>2025年1月24日(金)メモ</summary>
     - GitHubのエラーは、再度新しいリポジトリをpublicで作成することで解決
@@ -201,10 +207,12 @@ git commit -m "Resolve merge conflicts"
 
 </details>
 
----
----
 
-# コーディング規則（仮）
+<details>
+<summary>
+ コーディング規則（仮）
+</summary>
+    
 
 本プロジェクトのコーディング規則は、以下の通り。
 
@@ -280,3 +288,65 @@ git commit -m "Resolve merge conflicts"
     ファイル名: `UserProfile.php`
 
 ---
+
+</details>
+
+---
+
+## テーブル設計
+
+### users
+| 名前             | タイプ           | 属性       | NULL許容 | デフォルト値 | その他          |
+|------------------|------------------|------------|------|--------------|-----------------|
+| u_id (PK)          | bigint          | UNSIGNED   | いいえ | なし         | AUTO_INCREMENT  |
+| u_name           | varchar(255)    |            | いいえ | なし         |                 |
+| password         | varchar(255)    |            | いいえ | なし         |                 |
+| d_id (FK)        | bigint          | UNSIGNED   | いいえ | なし         |                 |
+| user_code        | varchar(255)    |            | いいえ | なし         |                 |
+| remember_token   | varchar(100)    |            | はい   | NULL         |                 |
+| created_at       | timestamp       |            | はい   | NULL         |                 |
+| updated_at       | timestamp       |            | はい   | NULL         |                 |
+
+---
+
+### departments
+| 名前              | タイプ           | 属性       | NULL許容 | デフォルト値 | その他          |
+|-------------------|------------------|------------|------|--------------|-----------------|
+| d_id (PK)           | bigint          | UNSIGNED   | いいえ | なし         | AUTO_INCREMENT  |
+| d_name            | varchar(255)    |            | いいえ | なし         |                 |
+| department_code   | varchar(255)    |            | いいえ | なし         |                 |
+| created_at        | timestamp       |            | はい   | NULL         |                 |
+| updated_at        | timestamp       |            | はい   | NULL         |                 |
+
+---
+
+### books
+| 名前              | タイプ           | 属性       | NULL許容 | デフォルト値 | その他          |
+|-------------------|------------------|------------|------|--------------|-----------------|
+| b_id (PK)           | bigint          | UNSIGNED   | いいえ | なし         | AUTO_INCREMENT  |
+| title             | varchar(255)    |            | いいえ | なし         |                 |
+| author            | varchar(255)    |            | はい   | NULL         |                 |
+| description       | text            |            | はい   | NULL         |                 |
+| published_date    | date            |            | はい   | NULL         |                 |
+| ISBN              | varchar(255)    |            | はい   | NULL         |                 |
+| image_url         | varchar(255)    |            | はい   | NULL         |                 |
+| created_at        | timestamp       |            | はい   | NULL         |                 |
+| updated_at        | timestamp       |            | はい   | NULL         |                 |
+
+---
+
+### reviews
+
+| 名前              | タイプ           | 属性       | NULL許容 | デフォルト値 | その他          |
+|-------------------|------------------|------------|------|--------------|-----------------|
+| r_id (PK)           | bigint          | UNSIGNED   | いいえ | なし         | AUTO_INCREMENT  |
+| rating            | tinyint         | UNSIGNED   | いいえ | なし         |                 |
+| comment           | text            |            | いいえ | なし         |                 |
+| u_id (FK) | bigint          | UNSIGNED   | いいえ | なし         |                 |
+| b_id (FK) | bigint          | UNSIGNED   | いいえ | なし         |                 |
+| created_at        | timestamp       |            | はい   | NULL         |                 |
+| updated_at        | timestamp       |            | はい   | NULL         |                 |
+
+
+
+
