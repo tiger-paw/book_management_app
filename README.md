@@ -36,7 +36,7 @@ php artisan migrate
 
 シーダー実行
 ```
-php artisan migrate --seed
+php artisan db:seed
 ```
 
 （キャッシュのクリア）
