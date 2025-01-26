@@ -1,4 +1,5 @@
 
+
 <details><summary>
 編集結果をGitHubへ反映させる確認 [1月27日(月)]
     
@@ -346,6 +347,7 @@ git commit -m "Resolve merge conflicts"
 | b_id (FK) | bigint          | UNSIGNED   | いいえ | なし         |                 |
 | created_at        | timestamp       |            | はい   | NULL         |                 |
 | updated_at        | timestamp       |            | はい   | NULL         |                 |
+
 
 
 
