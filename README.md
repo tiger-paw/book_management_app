@@ -84,6 +84,25 @@ README.md
 
 ---
 ---
+<details>
+    <summary>PHP, Laravel関連のVSCode拡張機能メモ</summary>
+■PHP拡張機能
+- PHP Intelephense : 高機能な構文チェックやコード補完機能が使えるようになるが、    
+「PHP Intelephense」を使用するためには、VSCodeに組み込まれている「PHP 言語機能」を無効にする必要あり。
+
+
+手順は以下の通り。
+```
+1. VSCodeで拡張機能の一覧を開く
+2. 「@builtin php」と検索する
+3. 「PHP 言語機能」を無効にする。「PHP の基本言語サポート」は有効のままでOK。
+```
+
+■Laravel拡張機能
+- Laravel Extension Pack / (Winnie Lin)  ...Laravelの開発に有用な拡張機能13個の詰め合わせ
+    
+    
+</details>
 
 
 ---
