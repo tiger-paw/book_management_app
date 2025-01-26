@@ -84,8 +84,15 @@ README.md
 
 ---
 
-<details><summary>「.env」ファイルの変更案</summary>
+<details><summary>「.env」ファイルの変更案参考</summary>
+
     
+24: DB_CONNECTION=mysql
+25: DB_HOST=127.0.0.1
+26: DB_PORT=3306
+27: DB_DATABASE=book_management_db
+28: DB_USERNAME=bookuser
+29: DB_PASSWORD=bookpassword    
 
 31: ~~SESSION_DRIVER=database~~
 
