@@ -9,7 +9,7 @@ git remote set-url origin https://{USER}:{ACCESS_TOKEN}@github.com/{REPOSITORY}.
 ```
 
 
-
+## アプリ準備に必要な手順は以下のコマンドを参考にしてください
 <details>
 <summary>コマンドなど</summary>
 
