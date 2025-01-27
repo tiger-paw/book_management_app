@@ -1,17 +1,7 @@
-リモートURLを更新
-GitHubリポジトリのリモートURLを更新して、パーソナルアクセストークンを使用できるようにする。
-
-~~git remote set-url origin https://[your_token]@github.com/[your-username]/hello-world-app.git~~
-
-
-```
-git remote set-url origin https://{USER}:{ACCESS_TOKEN}@github.com/{REPOSITORY}.git
-```
-
 
 ## アプリ準備に必要な手順は以下のコマンドを参考にしてください
 <details>
-<summary>コマンドなど</summary>
+<summary>コマンド</summary>
 
 
 パッケージのインストール
@@ -355,6 +345,23 @@ git commit -m "Resolve merge conflicts"
 ---
 
 </details>
+
+---
+<details>
+<summary>
+    GitHubの接続エラーの解決
+</summary>    
+リモートURLを更新
+GitHubリポジトリのリモートURLを更新して、パーソナルアクセストークンを使用できるようにする。
+
+~~git remote set-url origin https://[your_token]@github.com/[your-username]/hello-world-app.git~~
+
+
+```
+git remote set-url origin https://{USER}:{ACCESS_TOKEN}@github.com/{REPOSITORY}.git
+```
+</details>
+
 
 ---
 
