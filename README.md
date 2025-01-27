@@ -1,5 +1,7 @@
+
+## アプリ準備に必要な手順は以下のコマンドを参考にしてください
 <details>
-<summary>コマンドなど</summary>
+<summary>コマンド</summary>
 
 
 パッケージのインストール
@@ -39,7 +41,8 @@ php artisan migrate
 php artisan db:seed
 ```
 
-（キャッシュのクリア）
+
+↓これは必要ではないです↓（キャッシュのクリア）
 ```
 php artisan config:clear
 php artisan cache:clear
@@ -51,10 +54,7 @@ php artisan view:clear
 
 </details>
 
-<details><summary>
-編集結果をGitHubへ反映させる確認 [1月27日(月)]
-    
-</summary>    
+<details><summary>編集結果をGitHubへ反映させる確認</summary>    
 1. 事前準備:   現在の作業すべてを一旦コミットしておく => プッシュする
 
 ■ステージング
@@ -162,29 +162,7 @@ README.md
 </details>
 
 
-<details>
-    <summary>PHP, Laravel関連のVSCode拡張機能メモ</summary>
 
-■Laravel拡張機能
-- Laravel Extension Pack / (Winnie Lin)  ...Laravelの開発に有用な拡張機能13個の詰め合わせ
-
-
-<br>
-<br>
-<br>
-    
-~~■PHP拡張機能~~
-~~- PHP Intelephense : 高機能な構文チェックやコード補完機能が使えるようになるが、~~  
-~~「PHP Intelephense」を使用するためには、VSCodeに組み込まれている「PHP 言語機能」を無効にする必要あり。~~
-
-~~手順は以下の通り。~~
-
-~~1. VSCodeで拡張機能の一覧を開く~~
-~~2. 「@builtin php」と検索する~~
-~~3. 「PHP 言語機能」を無効にする。「PHP の基本言語サポート」は有効のままでOK。~~
-
-    
-</details>
 
 
 <details><summary>Git開発手順</summary>
@@ -253,7 +231,18 @@ git commit -m "Resolve merge conflicts"
 
 
 
-<details><summary>2025年1月24日(金)メモ</summary>
+
+<details><summary>2025年1月27日(月)</summary>
+    - GitHubは、SSHの設定を行うことで解決
+    - Seederは保留し、明日使えるように努める
+    - 1/31(金)の発表について、1班は4番目PM13:00 ~ 13:25
+    - はじめの5分で、1月生向けに「訓練で学んできたこと」「語句の説明」「応用課題に向けての話」など.
+        （Java, HTML/CSS, JavaScript, PHP(Laravel), データベースについて） 
+    - パワーポイントで発表：　発表者、PC操作１、パワーポイント作成２名とした。
+</details>
+
+
+<details><summary>2025年1月24日(金)</summary>
     - GitHubのエラーは、再度新しいリポジトリをpublicで作成することで解決
     - 招待されたメールから「Accept invitation」を押下を忘れていたかも
 
@@ -342,6 +331,23 @@ git commit -m "Resolve merge conflicts"
 ---
 
 </details>
+
+
+<details>
+<summary>
+    GitHubの接続エラーの解決
+</summary>    
+リモートURLを更新
+GitHubリポジトリのリモートURLを更新して、パーソナルアクセストークンを使用できるようにする。
+
+~~git remote set-url origin https://[your_token]@github.com/[your-username]/hello-world-app.git~~
+
+
+```
+git remote set-url origin https://{USER}:{ACCESS_TOKEN}@github.com/{REPOSITORY}.git
+```
+</details>
+
 
 ---
 

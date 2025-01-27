@@ -21,6 +21,12 @@
     @endif
     <!-- 戻るリンク -->
     <a href="{{ route('index') }}">メニューに戻る</a>
-    <!-- リモートリポジトリにプッシュができていなかったのでコメント -->
+                <li>{{ $book->title }} - {{ $book->author }}</li>
+            @endforeach
+        </ul>
+    @endif
+    <!-- 書籍一覧に戻るリンク -->
+    <a href="{{ route('index') }}">メニューに戻る</a>
+    <!-- 他のメニュー項目も必要に応じて追加 -->
 </body>
 </html>

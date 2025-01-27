@@ -12,5 +12,6 @@ class TopController extends Controller
     public function index()
     {
         // ビューを返す処理を記載
+        return view('index');
     }
 }

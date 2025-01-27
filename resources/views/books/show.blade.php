@@ -16,6 +16,11 @@
     <a href="{{ route('books.index') }}">書籍一覧に戻る</a>
     <br>
     <a href="{{ route('index') }}">メニューに戻る</a>
-    <!-- リモートリポジトリにプッシュができていなかったのでコメント -->
+
+    <p><strong>出版年:</strong> {{ $book->published_year }}</p>
+    <p><strong>概要:</strong> {{ $book->description }}</p>
+
+    <!-- 書籍一覧に戻るリンク -->
+    <a href="{{ route('books.index') }}">書籍一覧に戻る</a>
 </body>
 </html>
