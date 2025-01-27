@@ -1,66 +1,425 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## アプリ準備に必要な手順は以下のコマンドを参考にしてください
+<details>
+<summary>コマンド</summary>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+パッケージのインストール
+```
+composer install
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+環境設定ファイルの作成
+```
+cp .env.example .env
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+アプリケーションキーの生成
+```
+php artisan key:generate
+```
 
-## Learning Laravel
+データベースの設定(.envファイル)
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=データベース名
+DB_USERNAME=ユーザー名
+DB_PASSWORD=パスワード
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+データベースマイグレーション
+```
+php artisan migrate
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```
 
-## Laravel Sponsors
+シーダー実行
+```
+php artisan db:seed
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+↓これは必要ではないです↓（キャッシュのクリア）
+```
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+php artisan view:clear
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+</details>
 
-## Code of Conduct
+<details><summary>
+編集結果をGitHubへ反映させる確認 [1月27日(月)]
+    
+</summary>    
+1. 事前準備:   現在の作業すべてを一旦コミットしておく => プッシュする
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+■ステージング
+```
+git add .
+```
 
-## Security Vulnerabilities
+■コミット
+```
+git commit -m "新しいブランチを作成するためにコミット"
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+■プル
+```
+git pull origin main
+```
+準備完了
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. 各々がローカル環境のmainブランチにて、以下の[]内に`OK`を入力し、`add => commit => push` する
+
+- [] リーダー
+- [] サブリーダー
+- [] ドキュメント管理
+- [] 書記
+
+<details>
+<summary>上記2.`add => commit => push`の手順(詳細)</summary>
+    
+#0. 現在のブランチを確認する(*が現在のブランチ)
+    
+```    
+git branch
+```
+
+#1. 編集してみる
+README.mdファイルに`OK`と入力
+
+```md
+- [OK] リーダー
+```
+
+#2. ステージングする(コミットするファイルを登録する)
+
+```
+git add README.md
+```
+
+#3. コミットする（登録したファイルの変更履歴をローカルリポジトリに記録する）
+
+```
+git commit -m "OKを追加"
+```
+
+#4. プッシュする（ローカルリポジトリの変更をリモートリポジトリへ反映させる）
+
+```
+git push
+```
+#5. GitHub(リモートリポジトリ[origin/main])に変更が反映された
+
+#6. 他の人の変更をリモートリポジトリからローカルリポジトリに取り込む(プル)
+
+```
+git pull origin main
+```
+
+#7. VSCodeにて他の人の変更が取り込まれたことを確認できる
+README.md
+```
+- [OK] リーダー
+- [OK] サブリーダー
+- [OK] ドキュメント管理
+- [OK] 書記
+
+```
+##### 以上 ###############
+
+</details>
+    
+</details>
+
+
+<details><summary>「.env」ファイルの変更案参考</summary>
+
+    
+24: DB_CONNECTION=mysql
+
+25: DB_HOST=127.0.0.1
+
+26: DB_PORT=3306
+
+27: DB_DATABASE=book_management_db
+
+28: DB_USERNAME=bookuser
+
+29: DB_PASSWORD=bookpassword    
+
+31: ~~SESSION_DRIVER=database~~
+
+31:=> SESSION_DRIVER=file 
+
+
+
+</details>
+
+
+<details>
+    <summary>PHP, Laravel関連のVSCode拡張機能メモ</summary>
+
+■Laravel拡張機能
+- Laravel Extension Pack / (Winnie Lin)  ...Laravelの開発に有用な拡張機能13個の詰め合わせ
+
+
+<br>
+<br>
+<br>
+    
+~~■PHP拡張機能~~
+~~- PHP Intelephense : 高機能な構文チェックやコード補完機能が使えるようになるが、~~  
+~~「PHP Intelephense」を使用するためには、VSCodeに組み込まれている「PHP 言語機能」を無効にする必要あり。~~
+
+~~手順は以下の通り。~~
+
+~~1. VSCodeで拡張機能の一覧を開く~~
+~~2. 「@builtin php」と検索する~~
+~~3. 「PHP 言語機能」を無効にする。「PHP の基本言語サポート」は有効のままでOK。~~
+
+    
+</details>
+
+
+<details><summary>Git開発手順</summary>
+以下は、Gitを使用して4人のチームが機能ごとにブランチを分けて開発を進める手順です。git-flowは使用せず、mainブランチと機能ブランチの2つの関係で行います。
+
+### 1. リポジトリのクローン
+まず、リポジトリをクローンします。
+```bash
+git clone <リポジトリURL>
+cd <リポジトリ名>
+```
+
+### 2. ブランチの作成
+各メンバーは自分の機能ブランチを作成します。
+```bash
+git checkout -b feature/<機能名>
+```
+
+### 3. 開発作業
+各自の機能ブランチで開発を進めます。
+```bash
+git add .
+git commit -m "Add <機能名> feature"
+```
+
+### 4. リモートリポジトリへのプッシュ
+作業が完了したら、リモートリポジトリにプッシュします。
+```bash
+git push origin feature/<機能名>
+```
+
+### 5. プルリクエストの作成
+GitHubなどのプラットフォームでプルリクエストを作成し、mainブランチへのマージをリクエストします。
+
+### 6. コードレビューとマージ
+他のメンバーがコードレビューを行い、問題がなければmainブランチにマージします。
+
+### 7. mainブランチの更新
+mainブランチを最新の状態に保つために、定期的にmainブランチをプルします。
+```bash
+git checkout main
+git pull origin main
+```
+
+### 8. 機能ブランチの更新
+mainブランチの変更を自分の機能ブランチに取り込みます。
+```bash
+git checkout feature/<機能名>
+git merge main
+```
+
+### 9. コンフリクトの解消
+マージ時にコンフリクトが発生した場合は、手動で解消します。
+```bash
+# コンフリクトを解消した後
+git add .
+git commit -m "Resolve merge conflicts"
+```
+
+### 10. 繰り返し
+上記の手順を繰り返して開発を進めます。
+
+これで、各メンバーが機能ごとにブランチを分けて開発を進めながら、mainブランチに随時更新していくことができます。
+
+</details>
+
+
+
+<details><summary>2025年1月24日(金)メモ</summary>
+    - GitHubのエラーは、再度新しいリポジトリをpublicで作成することで解決
+    - 招待されたメールから「Accept invitation」を押下を忘れていたかも
+
+</details>
+
+
+<details>
+<summary>
+ コーディング規則（仮）
+</summary>
+    
+
+本プロジェクトのコーディング規則は、以下の通り。
+
+## 要約
+
+「クラス名やファイル名はパスカルケース」「関数・変数名はキャメルケース」「定数は大文字スネークケース」と覚えてすればよい。
+
+### 1. **クラス名**
+
+-   **パスカルケース（PascalCase）**を使用。
+-   単語の先頭を大文字にし、単語間に区切り文字を使わない。
+-   例:
+    ```php
+    class UserProfile {}
+    class BookManager {}
+    ```
+
+---
+
+### 2. **メソッド名**
+
+-   **キャメルケース（camelCase）**を使用。
+-   最初の単語を小文字にし、それ以降の単語の先頭を大文字に。
+-   例:
+    ```php
+    public function getUserName() {}
+    public function calculateTotal() {}
+    ```
+
+---
+
+### 3. **変数名**
+
+-   **キャメルケース（camelCase）**を使用。
+-   メソッド名と同じルール。
+-   例:
+    ```php
+    $userName = 'John';
+    $totalAmount = 100;
+    ```
+
+---
+
+### 4. **定数名**
+
+-   **全て大文字（UPPER_SNAKE_CASE）**で、単語間はアンダースコア（\_）で区切る。
+-   例:
+    ```php
+    const MAX_USERS = 100;
+    const API_KEY = 'your-api-key';
+    ```
+
+---
+
+### 5. **名前空間とクラス**
+
+-   名前空間は**パスカルケース**。
+-   フォルダ構造と対応させる。
+-   例:
+
+    ```php
+    namespace App\Services;
+
+    class UserService {}
+    ```
+
+---
+
+### 6. **ファイル名**
+
+-   クラス名に一致させ、**パスカルケース**を使用。
+-   例:
+    ファイル名: `UserProfile.php`
+
+---
+
+</details>
+
+---
+<details>
+<summary>
+    GitHubの接続エラーの解決
+</summary>    
+リモートURLを更新
+GitHubリポジトリのリモートURLを更新して、パーソナルアクセストークンを使用できるようにする。
+
+~~git remote set-url origin https://[your_token]@github.com/[your-username]/hello-world-app.git~~
+
+
+```
+git remote set-url origin https://{USER}:{ACCESS_TOKEN}@github.com/{REPOSITORY}.git
+```
+</details>
+
+
+---
+
+## テーブル設計
+
+### users
+| 名前             | タイプ           | 属性       | NULL許容 | デフォルト値 | その他          |
+|------------------|------------------|------------|------|--------------|-----------------|
+| u_id (PK)          | bigint          | UNSIGNED   | いいえ | なし         | AUTO_INCREMENT  |
+| u_name           | varchar(255)    |            | いいえ | なし         |                 |
+| password         | varchar(255)    |            | いいえ | なし         |                 |
+| d_id (FK)        | bigint          | UNSIGNED   | いいえ | なし         |                 |
+| user_code        | varchar(255)    |            | いいえ | なし         |                 |
+| remember_token   | varchar(100)    |            | はい   | NULL         |                 |
+| created_at       | timestamp       |            | はい   | NULL         |                 |
+| updated_at       | timestamp       |            | はい   | NULL         |                 |
+
+---
+
+### departments
+| 名前              | タイプ           | 属性       | NULL許容 | デフォルト値 | その他          |
+|-------------------|------------------|------------|------|--------------|-----------------|
+| d_id (PK)           | bigint          | UNSIGNED   | いいえ | なし         | AUTO_INCREMENT  |
+| d_name            | varchar(255)    |            | いいえ | なし         |                 |
+| department_code   | varchar(255)    |            | いいえ | なし         |                 |
+| created_at        | timestamp       |            | はい   | NULL         |                 |
+| updated_at        | timestamp       |            | はい   | NULL         |                 |
+
+---
+
+### books
+| 名前              | タイプ           | 属性       | NULL許容 | デフォルト値 | その他          |
+|-------------------|------------------|------------|------|--------------|-----------------|
+| b_id (PK)           | bigint          | UNSIGNED   | いいえ | なし         | AUTO_INCREMENT  |
+| title             | varchar(255)    |            | いいえ | なし         |                 |
+| author            | varchar(255)    |            | はい   | NULL         |                 |
+| description       | text            |            | はい   | NULL         |                 |
+| published_date    | date            |            | はい   | NULL         |                 |
+| ISBN              | varchar(255)    |            | はい   | NULL         |                 |
+| image_url         | varchar(255)    |            | はい   | NULL         |                 |
+| created_at        | timestamp       |            | はい   | NULL         |                 |
+| updated_at        | timestamp       |            | はい   | NULL         |                 |
+
+---
+
+### reviews
+
+| 名前              | タイプ           | 属性       | NULL許容 | デフォルト値 | その他          |
+|-------------------|------------------|------------|------|--------------|-----------------|
+| r_id (PK)           | bigint          | UNSIGNED   | いいえ | なし         | AUTO_INCREMENT  |
+| rating            | tinyint         | UNSIGNED   | いいえ | なし         |                 |
+| comment           | text            |            | いいえ | なし         |                 |
+| u_id (FK) | bigint          | UNSIGNED   | いいえ | なし         |                 |
+| b_id (FK) | bigint          | UNSIGNED   | いいえ | なし         |                 |
+| created_at        | timestamp       |            | はい   | NULL         |                 |
+| updated_at        | timestamp       |            | はい   | NULL         |                 |
+
+
+
+
+
