@@ -27,9 +27,8 @@ class Book extends Model
         'published_date', // 出版日
     ];
 
-    // <!-- リモートリポジトリにプッシュができていなかったのでコメント -->
-
-    //ステージング、コミットするブランチを間違えて履歴が消えたのでやり直すためにコメント
-
-
+    public function reviews() // 書籍ID（外部キー）
+   {
+       return $this->hasMany(Review::class, "b_id");
+   }    
 }
