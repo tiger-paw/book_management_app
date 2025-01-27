@@ -51,7 +51,8 @@ php artisan migrate
 php artisan db:seed
 ```
 
-（キャッシュのクリア）
+
+↓これは必要ではないです↓（キャッシュのクリア）
 ```
 php artisan config:clear
 php artisan cache:clear
