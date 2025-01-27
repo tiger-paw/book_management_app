@@ -12,12 +12,6 @@ class TopController extends Controller
     public function index()
     {
         // ビューを返す処理を記載
-        $menuItems = [
-            '書籍一覧',
-            '書籍検索',
-            '社員管理',
-            '書籍管理'
-        ];
-        return view('index',compact('menuItems'));
+        return view('index');
     }
 }
