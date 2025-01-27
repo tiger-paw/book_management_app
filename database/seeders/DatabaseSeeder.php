@@ -15,18 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         // 追加
         $this->call([
-            UsersTableSeeder::class,
             DepartmentsTableSeeder::class,
+            UsersTableSeeder::class,
             BooksTableSeeder::class,
             ReviewsTableSeeder::class,
         ]);
-
-
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }
