@@ -1,7 +1,11 @@
 リモートURLを更新
 GitHubリポジトリのリモートURLを更新して、パーソナルアクセストークンを使用できるようにする。
+
+~~git remote set-url origin https://[your_token]@github.com/[your-username]/hello-world-app.git~~
+
+
 ```
-git remote set-url origin https://[your_token]@github.com/[your-username]/hello-world-app.git
+git remote set-url origin https://{USER}:{ACCESS_TOKEN}@github.com/{REPOSITORY}.git
 ```
 
 
