@@ -27,4 +27,6 @@ class Book extends Model
         'published_date', // 出版日
     ];
 
+    //ステージング、コミットするブランチを間違えて履歴が消えたのでやり直すためにコメント
+
 }

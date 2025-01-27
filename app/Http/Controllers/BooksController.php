@@ -20,5 +20,6 @@ class BooksController extends Controller
         $book = Book::findOrFail($id); // IDで書籍を取得、見つからなければ404エラー
         return view('books.show', compact('book')); // 詳細ビューに渡す
     }
+    ステージング、コミットするブランチを間違えて履歴が消えたのでやり直すためにコメント
 */
 }
