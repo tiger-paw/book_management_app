@@ -15,6 +15,7 @@ Route::get('/',[TopController::class,'index'])->name('index');
 
 // 書籍の一覧
 Route::get('/books',[BooksController::class,'index'])->name('books.index');
+Route::get('/books/{id}',[BooksController::class,'show'])->name('books.show');
 
 
 // loginフォームページへ遷移する
