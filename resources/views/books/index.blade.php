@@ -12,6 +12,15 @@
     @else
         <ul>
             @foreach($books as $book)
+                <li>
+                    <!-- 書籍名をクリックすると詳細ページに遷移 -->
+                    <a href="{{ route('books.show', $book->b_id) }}">{{ $book->title }}</a> - {{ $book->author }}
+                </li>
+            @endforeach
+        </ul>
+    @endif
+    <!-- 戻るリンク -->
+    <a href="{{ route('index') }}">メニューに戻る</a>
                 <li>{{ $book->title }} - {{ $book->author }}</li>
             @endforeach
         </ul>
@@ -19,6 +28,5 @@
     <!-- 書籍一覧に戻るリンク -->
     <a href="{{ route('index') }}">メニューに戻る</a>
     <!-- 他のメニュー項目も必要に応じて追加 -->
-    <!-- ステージング、コミットするブランチを間違えて履歴が消えたのでやり直すためにコメント -->
 </body>
 </html>
