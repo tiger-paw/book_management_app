@@ -35,4 +35,17 @@ class UsersController extends Controller
         ];
         return view('db.user_management_store',$data);
     }
+    public function erase(Request $req){
+        if($req ->isMethod('get')){
+            return view('db.user_management_erase');
+        }elseif($req ->isMethod('post')){
+            $id= $req -> id;
+            $data=[
+                'record' => User_management::find($id)
+            ];
+            return view('db.user_management_erase',$data);
+        }else{
+            redirect('/');
+        }
+    }
 }
