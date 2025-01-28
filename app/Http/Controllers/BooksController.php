@@ -28,9 +28,17 @@ class BooksController extends Controller
         return view('db.book_management_store',$data);
     }
 
-    public function erase(Requset $req)
-    {
-        
+    public function erase(Request $req){
+        if($req ->isMethod('get')){
+            return view('db.book_management_erase');
+        }elseif($req ->isMethod('post')){
+            $data=[
+                'record' => Book::all()
+            ];
+            return view('db.book_management_erase',$data);
+        }else{
+            redirect('/');
+        }
     }
     
     // 書籍一覧画面

@@ -7,12 +7,15 @@
 </head>
 <body>
     <h1>書籍の削除</h1>
-    @if(isset($record))
-        <form action="/db/book_management_delete" method="post">
-
-        </form>
-    @else
-        
-    @endif
+    <table class="table">
+        <tr><th>書籍名</th><th>著者名</th><th>おすすめ度</th></tr>
+        @foreach($records as $record)
+        <tr>
+            <td>{{$record->title}}</td>
+            <td>{{$record->author}}</td>
+            <td>{{$record->public}}</td>
+        </tr>
+        @endforeach
+    </table>
 </body>
 </html>
