@@ -20,6 +20,11 @@ class ShareUserData
         //     return redirect('/login');
         // }
 
+        // ログインしていない(=userIdを保持していない)場合はログインページへリダイレクト
+        if (!$request->session()->has('userId') && !$this->isLoginRequest($request)) {
+            return redirect('/login');
+        }
+
         // セッションからデータを取得
         if ($request->hasSession() && $request->session()->has('userId')) {
             $userId = $request->session()->get('userId');
@@ -44,5 +49,10 @@ class ShareUserData
         }
 
         return $next($request);
+    }
+
+    protected function isLoginRequest(Request $request): bool
+    {
+        return $request->is('login') || $request->is('login/*');
     }
 }
