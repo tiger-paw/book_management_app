@@ -23,7 +23,7 @@
         <form action="/user_management_db/erase" method="post">
         @csrf  
         投稿番号<input type="number" name="id" required>
-            <input type="submit" value="データ表示">
+            <input type="submit" value="確認">
         </form>
     @endif
 </body>

@@ -25,7 +25,7 @@
         </tr>
     </table>
     <br>
-    <a href="/">社員管理画面に戻る</a>
+    <a href="{{ route('user_management.index') }}">社員管理画面に戻る</a>
 
 </body>
 </html>

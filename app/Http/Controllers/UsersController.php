@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\U_id;
-use App\Models\D_id;
+use App\Models\Department;
 
 
 class UsersController extends Controller
@@ -26,13 +26,13 @@ class UsersController extends Controller
     
     public function store(Request $req){
 
-        $user= new U_id();
-        $user ->user_name = $req ->user_name;
-        $user ->password = $req ->password;
-        $user ->d_id = $req ->d_id;
-        $user ->user_code = $req ->user_code;
+        $users= new U_id();
+        $users ->user_name = $req ->user_name;
+        $users ->password = $req ->password;
+        $users ->d_id = $req ->d_id;
+        $users ->user_code = $req ->user_code;
 
-        $user ->save();
+        $users ->save();
         $data=[
             'user_name' =>  $req ->user_name,
             'password' => $req ->password,
