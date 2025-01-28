@@ -12,18 +12,10 @@
     <p><strong>出版日:</strong> {{ $book->published_date }}</p>
     <p><strong>ISBN:</strong> {{ $book->ISBN }}</p>
     <p><strong>画像URL:</strong> <img src="{{ $book->image_url }}" alt="{{ $book->title }}"></p>
-<<<<<<< HEAD
-
-=======
->>>>>>> main
     <!-- 戻るリンク -->
     <a href="{{ route('books.index') }}">書籍一覧に戻る</a>
     <br>
     <a href="{{ route('index') }}">メニューに戻る</a>
-<<<<<<< HEAD
-    <!-- マージできればけしてよい -->
-=======
     <!-- リモートリポジトリにプッシュができていなかったのでコメント -->
->>>>>>> main
 </body>
 </html>

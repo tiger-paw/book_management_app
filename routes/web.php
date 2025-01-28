@@ -8,9 +8,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AuthController; // ログイン認証用に新たに追加で作成したコントローラ
 use App\Http\Controllers\BooksController;
 
-<<<<<<< HEAD
 // メニュー画面を表示
-=======
 // 「社員管理」
 
 Route::get('/user_management',function(){
@@ -28,7 +26,6 @@ Route::post('/db/user_management_erase',[UsersController::class,'erase']);
 Route::post('/db/user_management_delete',[UsersController::class,'delete']);
 
 // 「書籍管理」
->>>>>>> main
 // ここで返されるビューは resources/views/index.blade.php
 
 Route::get('/', function () {
@@ -39,10 +36,8 @@ Route::get('/', function () {
 Route::get('/',[TopController::class,'index'])->name('index');
 // 書籍の一覧
 Route::get('/books',[BooksController::class,'index'])->name('books.index');
-<<<<<<< HEAD
 // 書籍の詳細ページ
 Route::get('/books/{id}', [BooksController::class, 'show'])->name('books.show');
-=======
 Route::get('/books/{id}',[BooksController::class,'show'])->name('books.show');
 
 
@@ -66,4 +61,3 @@ Route::get('db/book_management_erase',[BooksController::class,'erase']);
 Route::post('/login', [AuthController::class, 'login']);
 
 
->>>>>>> main
