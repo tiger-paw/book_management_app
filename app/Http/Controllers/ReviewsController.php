@@ -9,11 +9,14 @@ use Auth;
 
 class ReviewsController extends Controller
 {
-    // レビュー一覧の表示（書籍詳細ページに埋め込む）
+    // 書籍詳細ページにレビューの一覧を表示
     public function index($bookId)
     {
+        // 書籍情報を取得
         $book = Book::findOrFail($bookId);
+        // 書籍に関連するレビューを取得
         $reviews = $book->reviews()->get();
+        // 書籍詳細ページにレビュー一覧を渡す
         return view('books.show', compact('book', 'reviews'));
     }
 }
