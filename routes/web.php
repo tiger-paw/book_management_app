@@ -51,6 +51,7 @@ Route::post('/books/{bookId}/reviews/create_check', [ReviewsController::class, '
 Route::post('/books/{bookId}/reviews/store', [ReviewsController::class, 'store'])->name('reviews.store');
 
 // レビュー更新関連
+Route::get('/books/{bookId}/reviews/{reviewId}/edit', [ReviewsController::class, 'edit'])->name('reviews.edit');
 
 // レビュー削除関連
 

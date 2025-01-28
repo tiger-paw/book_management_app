@@ -41,7 +41,7 @@ class ReviewsController extends Controller
     }
 
     // レビューを保存し、レビュー新規投稿完了画面を表示
-    public function store($bookId,Request $req)
+    public function store($bookId, Request $req)
     {
         // レビュー内容を保存
         $review = new Review();
@@ -51,6 +51,17 @@ class ReviewsController extends Controller
         $review ->u_id = 1;
         $review ->save();
         // レビューの新規投稿完了画面に遷移する
-        return view('books.reviews.store',compact('bookId')); 
+        return view('books.reviews.store', compact('bookId')); 
+    }
+
+    // レビューの編集フォームを表示
+    public function edit($bookId, $reviewId)
+    {
+        // 書籍情報を取得
+        $book = Book::findOrFail($bookId);
+        // レビュー情報を取得
+        $review = Review::findOrFail($reviewId);
+        // レビューの編集フォームに遷移する
+        return view('books.reviews.edit', compact('book', 'review'));
     }
 }
