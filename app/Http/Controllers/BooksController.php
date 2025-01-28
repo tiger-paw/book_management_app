@@ -15,11 +15,11 @@ class BooksController extends Controller
 
     public function store(Request $req)
     {
-        $article = new Atricle();
-        $article->book_name = $req->book_name;
-        $article->author_name = $req->author_name;
-        $article->detail_item = $req->detail_item;
-        $article->save();
+        $book = new Book();
+        $book->title = $req->book_name;
+        $book->author = $req->author_name;
+        $book->description = $req->detail_item;
+        $book->save();
         $data = [
             'book_name' => $req->book_name,
             'author_name' => $req->author_name,
