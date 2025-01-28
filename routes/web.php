@@ -9,9 +9,11 @@ use App\Http\Controllers\AuthController; // ログイン認証用に新たに追
 use App\Http\Controllers\BooksController;
 
 // 「社員管理」
-Route::get('/', function () {
+
+Route::get('/user_management',function(){
     return view('user_management_index');
-});
+})->name('user_management.index');
+
 
 Route::get('/db/user_management_index',[UsersController::class,'index']);
 
