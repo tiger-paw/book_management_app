@@ -9,8 +9,8 @@
     <h1>書籍管理メニュー</h1>
     <p>行いたい作業を選択してください</p>
     <ul>
-        <li><a href="/db/book_create">書籍登録</a></li>
-        <li><a href="/db/book_delete">書籍削除</a></li>
+        <li><a href="/db/book_management_create">書籍登録</a></li>
+        <li><a href="/db/book_management_delete">書籍削除</a></li>
     </ul>
 </body>
 </html>
