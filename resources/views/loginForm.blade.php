@@ -15,9 +15,9 @@
     <form action="/login" method="post">
         @csrf
         <div>
-            <p>ID<input type="number" name="u_id"></p>
-            <p>パスワード<input type="password" name="password"></p>
-            <input type="submit">
+            <p>ID<input type="number" name="u_id" required></p>
+            <p>パスワード<input type="password" name="password" required></p>
+            <input type="submit" value="ログイン">
         </div>
     </form>
 
