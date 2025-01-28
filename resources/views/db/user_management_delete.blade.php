@@ -20,7 +20,7 @@
         </tr>
         <tr>
             <td>{{ $u_id }}</td> 
-            <td>{{ $user_name }}</td>
+            <td>{{ $u_name }}</td>
             <td>{{ $d_id }}</td>
             <td>{{ $user_code }}</td>
         </tr>

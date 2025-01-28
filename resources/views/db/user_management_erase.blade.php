@@ -14,7 +14,7 @@
             @csrf
             <input type="hidden" name="id" value="{{ $record ->id }}" readonly><br>
             社員番号 {{ $record ->id }}<br>
-            社員名<input type="text" name="user_name" value="{{ $record ->user_name }}" readonly><br>
+            社員名<input type="text" name="u_name" value="{{ $record ->u_name }}" readonly><br>
             投稿記事<input type="text" name="d_id" readonly>{{ $record ->d_id }}</input><br>
             <input type="submit" value="削除">
             <a href="/user_management_db/erase">社員削除画面に戻る</a>

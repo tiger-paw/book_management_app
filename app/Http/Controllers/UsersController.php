@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\U_id;
+use App\Models\User;
 use App\Models\Department;
 
 
@@ -14,7 +14,7 @@ class UsersController extends Controller
     }
     public function index(){
         $data = [
-            'records' => U_id::all()
+            'records' => User::all()
         ];
         //return view('db.index',$data);
         return view('db.user_management_index',$data);
@@ -26,18 +26,18 @@ class UsersController extends Controller
     
     public function store(Request $req){
 
-        $users= new U_id();
-        $users ->user_name = $req ->user_name;
+        $users= new User();
+        $users ->u_name = $req ->u_name;
         $users ->password = $req ->password;
         $users ->d_id = $req ->d_id;
         $users ->user_code = $req ->user_code;
 
         $users ->save();
         $data=[
-            'user_name' =>  $req ->user_name,
+            'u_name' =>  $req ->u_name,
             'password' => $req ->password,
             'd_id' => $req ->d_id,
-            'usercode' => $req ->usercode
+            'user_code' => $req ->user_code
         ];
         return view('db.user_management_store',$data);
     }
@@ -47,7 +47,7 @@ class UsersController extends Controller
         }elseif($req ->isMethod('post')){
             $id= $req -> id;
             $data=[
-                'record' => U_id::find($id)
+                'record' => User::find($id)
             ];
             return view('db.user_management_erase',$data);
         }else{

@@ -20,6 +20,6 @@ class Department extends Model
     ];
     //リレーションシップの作成
     public function users(){
-        return $this->hasMany(U_id::class);
+        return $this->hasMany(User::class);
     }
 }

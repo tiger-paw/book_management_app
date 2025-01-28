@@ -23,10 +23,16 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'u_name',         // 社員名（必須）
+        'password',        // パスワード（必須）
+        'd_id',   // 部署ID（必須）
+        'user_code', // 社員コード（必須）
+        'remember_token',          // 予備（NULL許容）
     ];
+                //リレーションシップの作成
+    public function department(){
+        return $this->belongsTo(D_id::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

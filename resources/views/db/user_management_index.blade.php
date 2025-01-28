@@ -18,7 +18,7 @@
         @foreach($records as $record)
         <tr>
             <td>{{ $record->u_id }}</td>
-            <td>{{ $record->user_name }}</td>
+            <td>{{ $record->u_name }}</td>
             <td>{{ $record->d_id }}</td>
             <td>{{ $record->user_code }}</td>
         </tr>
