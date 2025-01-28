@@ -12,11 +12,16 @@
         <tr>
             <th>社員名</th>
             <th>パスワード</th>
+            <th>部門ID</th>
+            <th>社員コード</th>
+
 
         </tr>
         <tr>
             <td>{{ $user_name }}</td>           
             <td>{{ $password }}</td>
+            <td>{{ $d_id }}</td>
+            <td>{{ $user_code }}</td>
         </tr>
     </table>
     <br>
