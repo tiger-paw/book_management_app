@@ -29,7 +29,7 @@ class Review extends Model
     }
     // 相手テーブル名（単数形）：user
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'u_id');
         // 相手モデル名（単数形）：User
     }
 }
