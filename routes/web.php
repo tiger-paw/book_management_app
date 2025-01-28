@@ -46,8 +46,9 @@ Route::get('/books/{id}',[BooksController::class,'show'])->name('books.show');
 Route::get('/books/{bookId}/reviews', [ReviewsController::class, 'index'])->name('books.show');
 
 // レビュー新規投稿関連
-Route::get('/reviews/create', [ReviewsController::class, 'create'])->name('reviews.create');
-Route::post('/reviews/store', [ReviewsController::class, 'store'])->name('reviews.store');
+Route::get('/books/{bookId}/reviews/create', [ReviewsController::class, 'create'])->name('reviews.create');
+Route::post('/books/{bookId}/reviews/create_check', [ReviewsController::class, 'createCheck'])->name('reviews.create.check');
+Route::post('/books/{bookId}/reviews/store', [ReviewsController::class, 'store'])->name('reviews.store');
 
 // レビュー更新関連
 

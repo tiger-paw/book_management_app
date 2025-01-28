@@ -19,4 +19,38 @@ class ReviewsController extends Controller
         // 書籍詳細ページにレビュー一覧を渡す
         return view('books.show', compact('book', 'reviews'));
     }
+
+    // レビューの新規投稿フォームを表示
+    public function create($bookId)
+    {
+        // レビューの新規投稿フォームに遷移する
+        return view('books.reviews.create',compact('bookId'));
+    }
+
+    // レビューの新規投稿内容確認画面を表示
+    public function createCheck($bookId,Request $req)
+    {
+        // 書籍情報を取得
+        $book = Book::findOrFail($bookId);
+        $data=[
+            'comment' => $req->comment,
+            'rating' => $req->rating,
+        ];
+        // レビューの新規投稿内容確認画面に遷移する
+        return view('books.reviews.create_check',compact('book','data'));
+    }
+
+    // レビューを保存し、レビュー新規投稿完了画面を表示
+    public function store($bookId,Request $req)
+    {
+        // レビュー内容を保存
+        $review = new Review();
+        $review ->b_id = $bookId;
+        $review ->comment = $req ->comment;
+        $review ->rating = $req ->rating;
+        $review ->u_id = 1;
+        $review ->save();
+        // レビューの新規投稿完了画面に遷移する
+        return view('books.reviews.store',compact('bookId')); 
+    }
 }

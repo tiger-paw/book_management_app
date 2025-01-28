@@ -9,6 +9,6 @@
 <body>
     <h1>投稿完了</h1>
     <p>レビューの投稿が完了しました。</p>
-    <a href="{{ route('books.show', $book->b_id) }}">書籍詳細へ戻る</a>
+    <a href="{{ route('books.show', $bookId) }}">書籍詳細へ戻る</a>
 </body>
 </html>

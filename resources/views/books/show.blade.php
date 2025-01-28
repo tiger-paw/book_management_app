@@ -20,6 +20,7 @@
         <ul>
             @foreach($reviews as $review)
                 <li>
+                    <p>投稿者名： {{ $review->user->u_name }}</p>
                     <p>評価: {{ $review->rating }} / 5</p>
                     <p>コメント: {{ $review->comment }}</p>
                 </li>
