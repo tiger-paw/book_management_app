@@ -18,8 +18,6 @@ return [
     |
     */
 
-    // セッションテーブルを作らないため、ファイルに変更
-    //'driver' => env('SESSION_DRIVER', 'database'),
     'driver' => env('SESSION_DRIVER', 'file'),
 
     /*

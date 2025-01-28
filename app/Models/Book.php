@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
+    // 追加
     use HasFactory;
 
-    // 主キーの指定（'b_id' を主キーとして指定）
-    protected $primaryKey = 'b_id';
+    // primaryKey：主キーの指定（'b_id' を主キーとして指定）
+    protected $primaryKey = 'b_id'; //書籍ID
 
-    // 挿入を許可するカラムを指定
+    // fillable：データ登録・更新をを許可するカラムを指定
     protected $fillable = [
         'title',         // 書籍タイトル（必須）
         'author',        // 著者名（NULL許容）
@@ -27,6 +28,10 @@ class Book extends Model
         'published_date', // 出版日
     ];
 
-    //ステージング、コミットするブランチを間違えて履歴が消えたのでやり直すためにコメント
-
+    // リレーションシップの設定
+    // 相手テーブル名（複数形）：reviews
+    public function reviews(){
+        return $this->hasMany(Review::class);
+        // 相手モデル名（単数形）：Review
+    }
 }
