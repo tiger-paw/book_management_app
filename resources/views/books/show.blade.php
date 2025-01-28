@@ -17,5 +17,6 @@
     <a href="{{ route('books.index') }}">書籍一覧に戻る</a>
     <br>
     <a href="{{ route('index') }}">メニューに戻る</a>
+    <!-- マージできればけしてよい -->
 </body>
 </html>
