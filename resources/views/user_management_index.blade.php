@@ -6,12 +6,12 @@
     <title>社員管理</title>
 </head>
 <body>
-<h1>社員管理</h1>
+<h1>社員管理画面</h1>
     <p>行いたい処理を選択してください</p>
     <ul>
-        <li><a href="/db/index">全社員の一覧表示</a></li>
-        <li><a href="/db/create">社員の新規登録</a></li>
-        <li><a href="/db/erase">データの削除</a></li>
+        <li><a href="/db/user_management_index">全社員の一覧表示</a></li>
+        <li><a href="/db/user_management_create">社員の新規登録</a></li>
+        <li><a href="/db/user_management_erase">社員の削除</a></li>
     </ul>
 </body>
 </html>
