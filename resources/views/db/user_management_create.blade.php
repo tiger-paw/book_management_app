@@ -7,18 +7,12 @@
 </head>
 <body>
 <h1>社員の新規登録</h1>
+<a href="/">社員管理画面に戻る</a>
     <form action="/db/user_management_store" method="post">
         @csrf
-        <div class="mb-3">
-            <label for="user_name" class="form_label">社員名</label>
-            <input type="text" class="form-control" name="user_name" id="user_name" value="{{ old('user_name')}}" >
-                
-        </div>
-        <div class="mb-3">
-            <label for="posted_item" class="form_label">パスワード</label>
-            <input type="text" name="password" id="password">
-        </div>
-        <input type="submit" value="登録" class="btn btn-primary">    
+        <p>ユーザー名：<input type="text" name="user_name"></p>
+        <p>パスワード：<input type="password" name="password"></p>
+        <input type="submit" value="確認" class="btn btn-primary">    
     </form>
     <br>
     @if($errors->any())
