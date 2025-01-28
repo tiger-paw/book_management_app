@@ -31,7 +31,7 @@ class Book extends Model
     // リレーションシップの設定
     // 相手テーブル名（複数形）：reviews
     public function reviews(){
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class , 'b_id');
         // 相手モデル名（単数形）：Review
-    }
+    }  
 }

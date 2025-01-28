@@ -18,14 +18,14 @@
 
         </tr>
         <tr>
-            <td>{{ $user_name }}</td>           
+            <td>{{ $u_name }}</td>           
             <td>{{ $password }}</td>
             <td>{{ $d_id }}</td>
             <td>{{ $user_code }}</td>
         </tr>
     </table>
     <br>
-    <a href="/">社員管理画面に戻る</a>
+    <a href="{{ route('user_management.index') }}">社員管理画面に戻る</a>
 
 </body>
 </html>

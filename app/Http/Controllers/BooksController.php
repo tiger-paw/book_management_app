@@ -10,12 +10,22 @@ class BooksController extends Controller
 // 「書籍管理」
     public function create()
     {
-        return view('db.create');
+        return view('db.book_management_create');
     }
 
     public function store(Request $req)
     {
-
+        $book = new Book();
+        $book->title = $req->book_name;
+        $book->author = $req->author_name;
+        $book->description = $req->detail_item;
+        $book->save();
+        $data = [
+            'book_name' => $req->book_name,
+            'author_name' => $req->author_name,
+            'detail_item' => $req->detail_item
+        ];
+        return view('db.book_management_store',$data);
     }
 
     public function erase(Request $req){
@@ -30,7 +40,7 @@ class BooksController extends Controller
             redirect('/');
         }
     }
- // 「書籍一覧」
+    
     // 書籍一覧画面
     public function index()
     {

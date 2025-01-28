@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User_management;
+use App\Models\User;
+use App\Models\Department;
+
 
 class UsersController extends Controller
 {
@@ -12,7 +14,7 @@ class UsersController extends Controller
     }
     public function index(){
         $data = [
-            'records' => User_management::paginate(10)
+            'records' => User::all()
         ];
         //return view('db.index',$data);
         return view('db.user_management_index',$data);
@@ -24,21 +26,18 @@ class UsersController extends Controller
     
     public function store(Request $req){
 
-        $input = $req->validate([
-            'user_name' =>'required | string',
-            'password' => 'required | string | max:200'
-        ]);
-        $user= new User_management();
-        $user ->user_name = $req ->user_name;
-        $user ->password = $req ->password;
-        $user ->d_id = $req ->d_id;
-        $user ->d_id = $req ->d_id;
+        $users= new User();
+        $users ->u_name = $req ->u_name;
+        $users ->password = $req ->password;
+        $users ->d_id = $req ->d_id;
+        $users ->user_code = $req ->user_code;
 
-
-        $user ->save();
+        $users ->save();
         $data=[
-            'user_name' =>  $req ->user_name,
-            'password' => $req ->password
+            'u_name' =>  $req ->u_name,
+            'password' => $req ->password,
+            'd_id' => $req ->d_id,
+            'user_code' => $req ->user_code
         ];
         return view('db.user_management_store',$data);
     }
@@ -48,7 +47,7 @@ class UsersController extends Controller
         }elseif($req ->isMethod('post')){
             $id= $req -> id;
             $data=[
-                'record' => User_management::find($id)
+                'record' => User::find($id)
             ];
             return view('db.user_management_erase',$data);
         }else{
