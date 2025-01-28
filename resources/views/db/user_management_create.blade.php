@@ -7,10 +7,10 @@
 </head>
 <body>
 <h1>社員の新規登録</h1>
-<a href="/">社員管理画面に戻る</a>
+<a href="{{ route('user_management.index') }}">社員管理画面に戻る</a>
     <form action="/db/user_management_store" method="post">
         @csrf
-        <p>ユーザー名：<input type="text" name="user_name" required></p>
+        <p>社員名：<input type="text" name="u_name" required></p>
         <p>パスワード：<input type="password" name="password" required></p>
         <p>部署ID：<input type="number" name="d_id" required></p>
         <p>社員コード：<input type="text" name="user_code" required></p>
