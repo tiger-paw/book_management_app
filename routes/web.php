@@ -24,7 +24,6 @@ Route::get('/db/user_management_erase', [UsersController::class, 'erase']);
 Route::post('/db/user_management_erase', [UsersController::class, 'erase']);
 Route::post('/db/user_management_delete', [UsersController::class, 'delete']);
 
-// 「書籍管理」
 
 // -----------------------------------------------
 
@@ -59,7 +58,7 @@ Route::post('/reviews/store', [ReviewsController::class, 'store'])->name('review
 // 「書籍管理」
 Route::get('/book_management_index', function () {
     return view('book_management_index');
-});
+})->name('book_management.index');
 
 Route::get('db/book_management_create', [BooksController::class, 'create']);
 Route::post('db/book_management_store', [BooksController::class, 'store']);
@@ -69,7 +68,7 @@ Route::get('db/book_management_erase', [BooksController::class, 'erase']);
 // -----------------------------------------
 // loginフォームページへ遷移する
 Route::get('/login', function () {
-    return view('loginForm');
+    return view('login_form');
 });
 // loginフォームからPOST
 Route::post('/login', [AuthController::class, 'login']);
