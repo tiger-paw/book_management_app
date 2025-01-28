@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>全件表示</h1>
-    <a href="/">社員管理画面に戻る</a>
+    <a href="{{ route('user_management.index') }}">社員管理画面に戻る</a>
     <table class="table">
         <tr>
             <th>社員番号</th>
@@ -18,7 +18,7 @@
         @foreach($records as $record)
         <tr>
             <td>{{ $record->u_id }}</td>
-            <td>{{ $record->user_name }}</td>
+            <td>{{ $record->u_name }}</td>
             <td>{{ $record->d_id }}</td>
             <td>{{ $record->user_code }}</td>
         </tr>

@@ -14,13 +14,12 @@
             @foreach($books as $book)
                 <li>
                     <!-- 書籍名をクリックすると詳細ページに遷移 -->
-                    <a href={{ route('books.show', $book->b_id) }}>{{ $book->title }}</a> - {{ $book->author }}
+                    <p>書籍名：<a href="{{ route('books.show', $book->b_id) }}">{{ $book->title }}</a> - 著者名：{{ $book->author }}</p>
                 </li>
             @endforeach
         </ul>
     @endif
     <!-- 戻るリンク -->
     <a href="{{ route('index') }}">メニューに戻る</a>
-    <!-- リモートリポジトリにプッシュができていなかったのでコメント -->
 </body>
 </html>
