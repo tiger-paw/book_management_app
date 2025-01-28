@@ -11,11 +11,12 @@
     <table class="table">
         <tr>
             <th>社員名</th>
-            <th></th>
+            <th>パスワード</th>
+
         </tr>
         <tr>
-            <td>{{ $user_name }}</td>
-            <td>{{ $posted_item }}</td>
+            <td>{{ $user_name }}</td>           
+            <td>{{ $password }}</td>
         </tr>
     </table>
     <br>
