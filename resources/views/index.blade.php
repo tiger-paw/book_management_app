@@ -7,6 +7,10 @@
 </head>
 <body>
     <h1>メニュー</h1>
+    <div>
+        ID:{{ $userId }}
+        名前:{{ $userName }}
+    </div>
     <ul>
         <li><a href="{{ route('books.index') }}">書籍一覧</a></li>
         <li>書籍検索</li>

@@ -18,6 +18,7 @@ class AuthController extends Controller
 
         $correctId = User::find($userId)->u_id; // 正しいu_id
         $correctPass = User::find($userId)->password; // 正しいパスワード
+        $userName = User::find($userId)->u_name;
 
         // function error()
         // {
@@ -43,11 +44,12 @@ class AuthController extends Controller
         $data = [
             'userId' => $userId,
             'password' => $userId,
+            'userName' => $userName,
             'correctId' => $correctId,
             'correctPass' => $correctPass,
         ];
 
-        return view('loginForm', $data);
+        return view('index', $data);
     }
 }
 
