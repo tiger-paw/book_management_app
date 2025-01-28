@@ -12,6 +12,18 @@
     <p><strong>出版日:</strong> {{ $book->published_date }}</p>
     <p><strong>ISBN:</strong> {{ $book->ISBN }}</p>
     <p><strong>画像URL:</strong> <img src="{{ $book->image_url }}" alt="{{ $book->title }}"></p>
+
+    <h2>レビュー一覧</h2>
+    @foreach ($reviews as $review)
+    <p>{{ $review->content }}</p>
+    @if(Auth::id() === $review->user_id)
+        <a href="{{ route('reviews.edit', $review->r_id) }}">更新</a>
+        <a href="{{ route('reviews.confirmDelete', $review->r_id) }}">削除</a>
+    @endif
+    @endforeach
+
+    <a href="{{ route('reviews.create', $book->b_id) }}">レビューを書く</a>
+
     <!-- 戻るリンク -->
     <a href="{{ route('books.index') }}">書籍一覧に戻る</a>
     <br>

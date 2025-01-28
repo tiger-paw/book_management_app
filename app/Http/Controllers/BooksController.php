@@ -32,9 +32,7 @@ class BooksController extends Controller
     {
         
     }
-
-
- // 「書籍一覧」
+    
     // 書籍一覧画面
     public function index()
     {
