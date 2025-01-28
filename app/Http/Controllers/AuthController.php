@@ -10,26 +10,42 @@ class AuthController extends Controller
     //
     public function login(Request $req)
     {
+        $userId = (int) $req->u_id; // ユーザ名の取得
+        $password = $req->password; // パスワードの取得
 
-        $userId = $req->u_id;
-        $password = $req->password;
-        $userPassword = User::find($userId)->password;
+        $userRecord = User::find($userId); // ユーザーIDに一致するレコード
+        $correctId = User::find($userId)->u_id; // 正しいu_id
+        $correctPass = User::find($userId)->password; // 正しいパスワード
 
-        $req->session()->put('userId', $userId);
-        $req->session()->put('password', $password);
+        $userName = User::find($userId)->u_name; // 社員名をDBから取得
+        $userCode = User::find($userId)->user_code; // ユーザーコードをDBから取得
 
+        // ユーザー照合結果
+        $isUser = $userId === $correctId && $password === $correctPass;
 
-        $data = [
-            'user_id' => $userId,
-            'password' => $password,
-            'userPassword' => $userPassword,
-        ];
+        // 総務であるかを確認する真偽値
+        $isAdmin = $userCode === "admin";
 
-        if (!empty($userId) && !empty($password) && $password === $userPassword) {
+        // 認証処理
+        if ($isUser) {
 
-            return view('loginForm', $data);
+            // リダイレクトするパターン  (セッションでデータをビューに渡すにはリダイレクト先のコントローラで取得が必要)
+            $req->session()->put('userId', $userId); // ユーザーIDをセッションに保存
+            $req->session()->put('userName', $userName); // ユーザー名をセッションに保存
+            $req->session()->put('userCode', $userCode); // ユーザーコードをセッションに保存
+            $req->session()->put('isAdmin', $isAdmin);
+
+            // return redirect('/')->with([
+            //     'userRecord' => $userRecord,
+            //     'userId' => $userId,
+            //     'userName' => $userName,
+            //     'userCode' => $userCode,
+            //     'isAdmin' => $isAdmin,
+            // ]);
+
+            return redirect('/');
+        } else {
+            return view('login_form');
         }
-
-        return view('/', $data);
     }
 }
