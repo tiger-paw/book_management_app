@@ -34,4 +34,8 @@ class Book extends Model
         return $this->hasMany(Review::class);
         // 相手モデル名（単数形）：Review
     }
+    public function reviews() // 書籍ID（外部キー）
+   {
+       return $this->hasMany(Review::class, "b_id");
+   }    
 }
