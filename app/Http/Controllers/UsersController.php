@@ -7,9 +7,12 @@ use App\Models\User_management;
 
 class UsersController extends Controller
 {
+    public function user_management_index(){
+        return view('index');
+    }
     public function index(){
         $data = [
-            'records' => User_management::paginate(1)
+            'records' => User_management::paginate(10)
         ];
         //return view('db.index',$data);
         return view('db.user_management_index',$data);
@@ -25,10 +28,14 @@ class UsersController extends Controller
             'user_name' =>'required | string',
             'password' => 'required | string | max:200'
         ]);
-        $article= new User_management();
-        $article ->user_name = $req ->user_name;
-        $article ->password = $req ->password;
-        $article ->save();
+        $user= new User_management();
+        $user ->user_name = $req ->user_name;
+        $user ->password = $req ->password;
+        $user ->d_id = $req ->d_id;
+        $user ->d_id = $req ->d_id;
+
+
+        $user ->save();
         $data=[
             'user_name' =>  $req ->user_name,
             'password' => $req ->password
