@@ -7,13 +7,15 @@
 </head>
 <body>
     <h1>データの削除</h1>
+    <a href="{{ route('user_management.index') }}">社員管理画面に戻る</a>
+
     @if(isset($record))
         <form action="/user_management_db/delete" method="post">
             @csrf
             <input type="hidden" name="id" value="{{ $record ->id }}" readonly><br>
             社員番号 {{ $record ->id }}<br>
             社員名<input type="text" name="user_name" value="{{ $record ->user_name }}" readonly><br>
-            投稿記事<textarea name="posted_item" readonly>{{ $record ->posted_item }}</textarea><br>
+            投稿記事<input type="text" name="d_id" readonly>{{ $record ->d_id }}</input><br>
             <input type="submit" value="削除">
             <a href="/user_management_db/erase">社員削除画面に戻る</a>
         </form>

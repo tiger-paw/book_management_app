@@ -11,7 +11,8 @@
     <ul>
         <li><a href="/db/user_management_index">全社員の一覧表示</a></li>
         <li><a href="/db/user_management_create">社員の新規登録</a></li>
-        <li><a href="/db/user_management_erase">社員の削除</a></li>
+        <li><a href="/db/user_management_erase">社員の削除</a></li><br>
+        <a href="/">メニューに戻る</a>
     </ul>
 </body>
 </html>
