@@ -9,8 +9,9 @@
 <body>
     <h1>書籍検索</h1>
     <p>キーワード（書籍名・著者名）</p>
-    <form action="/searchBooks" method="get">
+    <form action="/search_books" method="get">
         <input type="text" name="search_books">
+        <input type="submit" value="検索">
     </form>
 </body>
 </html>

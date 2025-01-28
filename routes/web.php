@@ -37,10 +37,10 @@ Route::get('/', function () {
 Route::get('/', [TopController::class, 'index'])->name('index');
 
 // 書籍の一覧
-Route::get('/books',[BooksController::class,'index'])->name('books.index');
+Route::get('/books', [BooksController::class, 'index'])->name('books.index');
 
 // 書籍の詳細
-Route::get('/books/{id}',[BooksController::class,'show'])->name('books.show');
+Route::get('/books/{id}', [BooksController::class, 'show'])->name('books.show');
 
 // 書籍詳細にレビュー一覧を表示
 Route::get('/books/{bookId}/reviews', [ReviewsController::class, 'index'])->name('books.show');
@@ -77,6 +77,6 @@ Route::post('/login', [AuthController::class, 'login']);
 
 
 // 「書籍検索」-------------------------------
-Route::get('/searchBooks', function () {
-    return view('search.searchBooksForm');
+Route::get('/search_books_form', function () {
+    return view('search.search_books_form');
 });
