@@ -20,8 +20,9 @@
             <input type="submit" value="ログイン">
         </div>
     </form>
-
-
+    @if($userRecord->u_id)
+        <p>照合結果：失敗</p>
+    @endif
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>

@@ -20,7 +20,7 @@
             <li><a href="/search_books_form">書籍検索</a></li>
         @else
             <li><a href="{{ route('user_management.index') }}">社員管理</li>
-            <li><a href="{{ route('book_management.index')}}">書籍管理</a></li>
+            <li><a href="{{ route('book_management.index') }}">書籍管理</a></li>
         @endif
     </ul>
 </body>
