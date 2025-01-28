@@ -8,9 +8,10 @@
 <body>
     <h1>メニュー</h1>
     <ul>
-        @foreach ($menuItems as $item)
-            <li>{{ $item }}</li>
-        @endforeach
+        <li><a href="{{ route('books.index') }}">書籍一覧</a></li>
+        <li>書籍検索</li>
+        <li>社員管理</li>
+        <li>書籍管理</li>
     </ul>
 </body>
 </html>
