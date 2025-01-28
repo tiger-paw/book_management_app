@@ -7,6 +7,22 @@ use App\Models\Book;
 
 class BooksController extends Controller
 {
+// 「書籍管理」
+    public function create()
+    {
+        return view('db.create');
+    }
+
+    public function store(Request $req)
+    {
+
+    }
+
+    public function cancel()
+    {
+        return view();
+    }
+ // 「書籍一覧」
     // 書籍一覧画面
     public function index()
     {
