@@ -11,34 +11,43 @@ class AuthController extends Controller
     public function login(Request $req)
     {
         // 追加PHP
-        session_start();
+        // session_start();
 
         $userId = $req->u_id; // ユーザ名の取得
         $password = $req->password; // パスワードの取得
 
-        $correctId = User::find($userId); // 正しいu_id
+        $correctId = User::find($userId)->u_id; // 正しいu_id
         $correctPass = User::find($userId)->password; // 正しいパスワード
 
-        function error()
-        {
-            $_SESSION['error'] = "ログインに失敗しました。ログインし直してください";
-            header('Location: login.php');
-            exit();
-        }
-        // フォームからのデータチェック
-        if (!isset($userId) || !isset($password) || $userId === "" || $password === "") {
-            error();
-        }
+        // function error()
+        // {
+        //     $_SESSION['error'] = "ログインに失敗しました。ログインし直してください";
+        //     header('Location: login.php');
+        //     exit();
+        // }
+        // // フォームからのデータチェック
+        // if (!isset($userId) || !isset($password) || $userId === "" || $password === "") {
+        //     error();
+        // }
 
-        // 認証処理(ユーザ名およびパスワードが一致するか)
-        if ($userId === $correctId && $password === $correctPass) {
-            $_SESSION['userId'] = $userId;
-            $_SESSION['isLogin'] = true;
-            header('Location: logined.php');
-            exit();
-        } else {
-            error();
-        }
+        // // 認証処理(ユーザ名およびパスワードが一致するか)
+        // if ($userId === $correctId && $password === $correctPass) {
+        //     $_SESSION['userId'] = $userId;
+        //     $_SESSION['isLogin'] = true;
+        //     header('Location: logined.php');
+        //     exit();
+        // } else {
+        //     error();
+        // }
+
+        $data = [
+            'userId' => $userId,
+            'password' => $userId,
+            'correctId' => $correctId,
+            'correctPass' => $correctPass,
+        ];
+
+        return view('loginForm', $data);
     }
 }
 
@@ -49,16 +58,16 @@ class AuthController extends Controller
         // $userPassword = User::find($userId)->password;
 
         
-        // $req->session()->put('userId', $userId);
-        // $req->session()->put('password', $password);
-
         // $data = [
-        //     'user_id' => $userId,
-        //     'password' => $password,
-        //     'userPassword' => $userPassword,
-        // ];
-
-        // if (!empty($userId) && !empty($password) && $password === $userPassword) {
+            //     'user_id' => $userId,
+            //     'password' => $password,
+            //     'userPassword' => $userPassword,
+            // ];
+            
+            // if (!empty($userId) && !empty($password) && $password === $userPassword) {
+                
+                // $req->session()->put('userId', $userId);
+                // $req->session()->put('password', $password);
 
         //     return view('loginForm', $data);
         // }
