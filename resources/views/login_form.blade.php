@@ -12,23 +12,49 @@
 
 <body>
     <h1>ログイン</h1>
-    <form action="/login" method="post">
+    <form action="/login" method="POST">
         @csrf
-        <div>
-            <p>ID<input type="number" name="u_id" required></p>
-            <p>パスワード<input type="password" name="password" required></p>
-            <input type="submit" value="ログイン">
-        </div>
+        <label for="u_id">ユーザーID:</label>
+        <input type="number" id="u_id" name="u_id" required><br><br>
+        <label for="password">パスワード:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">ログイン</button>
     </form>
 
     {{-- 開発用メモ（本番では削除します） --}}
-    <br><br>
+    <br><br><br><br><br>
     <h4 style="color: green">
         --------開発用メモ（本番前に削除）----------
     </h4>
-    <h5 style="color: blue">トップページからログインにリダイレクトされます</h5>
-    <h3 style="color: red;">id=1 → 一般<br>  id=2 → 総務</h3>
+    <p style="color: blue">未ログインでは、トップページからログインにリダイレクトされます</p>
+    <h3 style="color: red;">id=1 → 一般<br> id=2 → 総務</h3>
     <h3 style="color: red;">password: "password"</h3>
+    --------------------------------------------
+    <h2>開発者向け設定</h2>
+    <p>現在の強制リダイレクト状態:
+        @if(session('redirect_disabled', false))
+            <strong>無効化</strong>
+        @else
+            <strong>有効</strong>
+        @endif
+    </p>
+    <form action="/toggle-redirect" method="POST">
+        @csrf
+        <input type="hidden" name="redirect_disabled" value="1">
+        <button type="submit">強制リダイレクト無効化: ON</button>
+    </form>
+    <form action="/toggle-redirect" method="POST">
+        @csrf
+        <input type="hidden" name="redirect_disabled" value="0">
+        <button type="submit">強制リダイレクト無効化: OFF</button>
+    </form>
+    <p>
+        <a href="/books">書籍一覧</a>
+        <a href="/index">メニュー</a>
+        <a href="/db/user_management_create">社員登録</a>
+        <a href="/db/user_management_index">社員登録</a>
+    </p>
+    --------------------------------------------
     {{-- 開発用ここまで 削除 --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

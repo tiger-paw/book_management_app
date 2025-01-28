@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AuthController; // ログイン認証用に新たに追加で作成したコントローラ
+use App\Http\Controllers\ToggleRedirectController; // 開発者向け機能用に追加たコントローラ
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ReviewsController;
 
@@ -73,7 +74,8 @@ Route::get('/login', function () {
 // loginフォームからPOST
 Route::post('/login', [AuthController::class, 'login']);
 
-
+// 強制リダイレクトを無効化（開発者向け設定）
+Route::post('/toggle-redirect', [ToggleRedirectController::class, 'toggle']);
 
 // 「書籍検索」-------------------------------
 Route::get('/search_books_form', function () {

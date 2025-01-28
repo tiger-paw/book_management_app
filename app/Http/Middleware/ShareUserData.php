@@ -15,13 +15,21 @@ class ShareUserData
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // ログインしていなければログインページへリダイレクトさせる
         // if (empty($request->session()->get('userId'))) {
         //     return redirect('/login');
         // }
+        // デバッグ用
+        // dd($request->session()->all());
 
-        // ログインしていない(=userIdを保持していない)場合はログインページへリダイレクト
-        if (!$request->session()->has('userId') && !$this->isLoginRequest($request)) {
+        // トグルスイッチの状態を確認
+        if ($request->hasSession()) {
+            $redirectDisabled = $request->session()->get('redirect_disabled', false);
+            view()->share('redirect_disabled', $redirectDisabled);
+        }
+
+
+        // 強制リダイレクトが無効化されておらず、かつ、ログインしていない(=userIdを保持していない)、かつ、ログインページへのリクエストではない場合はログインページへリダイレクト
+        if (!$redirectDisabled && !$request->session()->has('userId') && !$this->isLoginRequest($request)) {
             return redirect('/login');
         }
 
@@ -31,12 +39,13 @@ class ShareUserData
             $userName = $request->session()->get('userName');
             $userCode = $request->session()->get('userCode');
             $isAdmin = $request->session()->get('isAdmin');
+            $redirect_disabled = $request->session()->get('redirect_disabled');
             // $isAdmin = $userCode === 'admin';
 
             // ビューにデータを渡す
-            view()->share(compact('userId', 'userName', 'userCode', 'isAdmin'));
+            view()->share(compact('userId', 'userName', 'userCode', 'isAdmin', 'redirect_disabled'));
             // ログインしている場合はそのままデータを渡す
-        } elseif (!($request->hasSession()) && $request->has('u_id') && $request->has('password')) { // elseifの条件はフォームからの送信データであるu_idとpasswordが存在する場合
+        } elseif (!($request->hasSession()) && $request->has('u_id') && $request->has('password')) { // フォームからの送信データであるu_idとpasswordが存在する場合
             // AuthControllerのloginアクションが実行されるよう送信データを保持したままリダイレクトではなくloginアクションへ移るようにする
             return app()->make(\App\Http\Controllers\AuthController::class)->login($request); // リクエストをAuthControllerのloginアクションに渡す
         } else {
