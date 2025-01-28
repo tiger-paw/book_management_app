@@ -12,8 +12,15 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    protected $primaryKey = 'u_id';
+    // primaryKey：主キーの指定（'u_id' を主キーとして指定）
+    protected $primaryKey = 'u_id'; // ユーザーID（ログインID）
 
+    // リレーションシップの設定
+    // 相手テーブル名（複数形）：reviews
+    public function reviews(){
+        return $this->hasMany(Review::class);
+        // 相手モデル名（単数形）：Review
+    }
 
     // ここから以下はデフォルトの記述です
 
