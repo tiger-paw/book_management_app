@@ -10,19 +10,21 @@
     <a href="{{ route('user_management.index') }}">社員管理画面に戻る</a>
 
     @if(isset($record))
-        <form action="/user_management_db/delete" method="post">
+    <form action="/db/user_management_erase" method="post">
             @csrf
             <input type="hidden" name="id" value="{{ $record ->id }}" readonly><br>
-            社員番号 {{ $record ->id }}<br>
+            社員番号<input type="text" name="u_id" value="{{ $record ->u_id }}" readonly><br>
             社員名<input type="text" name="u_name" value="{{ $record ->u_name }}" readonly><br>
-            投稿記事<input type="text" name="d_id" readonly>{{ $record ->d_id }}</input><br>
-            <input type="submit" value="削除">
-            <a href="/user_management_db/erase">社員削除画面に戻る</a>
+            部署ID<input type="text" name="d_id" value="{{ $record ->d_id }}" readonly><br>
+            社員コード<input type="text" name="user_code" value="{{ $record ->user_code }}" readonly><br>
+
+            <input type="submit" value="削除"><br>
+            <a href="/db/user_management_erase">社員削除画面に戻る</a>
         </form>
     @else
-        <form action="/user_management_db/erase" method="post">
+        <form action="/db/user_management_erase" method="post">
         @csrf  
-        投稿番号<input type="number" name="id" required>
+        社員番号<input type="number" name="id" required>
             <input type="submit" value="確認">
         </form>
     @endif

@@ -51,7 +51,19 @@ class UsersController extends Controller
             ];
             return view('db.user_management_erase',$data);
         }else{
-            redirect('/');
+            redirect('db.user_management_erase');
         }
+    }
+    public function delete(Request $req){
+        $users = User::find($req ->id);
+        $users -> delete();
+        $data=[
+            'id' => $req -> id,
+            'u_name' =>  $req ->u_name,
+            'password' => $req ->password,
+            'd_id' => $req ->d_id,
+            'user_code' => $req ->user_code
+        ];
+        return view('db.user_management_delete',$data);
     }
 }
