@@ -9,9 +9,11 @@ use App\Http\Controllers\AuthController; // ログイン認証用に新たに追
 use App\Http\Controllers\BooksController;
 
 // 「社員管理」
-Route::get('/', function () {
+
+Route::get('/user_management',function(){
     return view('user_management_index');
-});
+})->name('user_management.index');
+
 
 Route::get('/db/user_management_index',[UsersController::class,'index']);
 
@@ -42,12 +44,16 @@ Route::get('/login', function() {
     return view('loginForm');
 });
 
+// -----------------------------------------------
 // 「書籍管理」
-Route::get('/',[TopController::class,'index']);
+Route::get('/book_management_index', function () {
+    return view('book_management_index');
+});
 
-Route::get('db/book_create',[BooksController::class,'create']);
-Route::post('db/book_create',[BooksController::class,'store']);
-Route::get('db/book_cancel',[BooksController::class,'cancel']);
+Route::get('db/book_management_create',[BooksController::class,'create']);
+Route::post('db/book_management_store',[BooksController::class,'store']);
+
+Route::get('db/book_management_erase',[BooksController::class,'erase']);
 
 // loginフォームからPOST
 Route::post('/login', [AuthController::class, 'login']);
