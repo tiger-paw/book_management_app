@@ -19,14 +19,23 @@ class ShareUserData
         //     return redirect('/login');
         // }
         // デバッグ用
-        // dd($request->session()->all());
+        // dd($request->all()); // 確認成功："redirect_disabled" => "1" と表示される
+
+        // リダイレクトの有効/無効を切り替える
+        if ($request->has('redirect_disabled')) {
+            $redirectDisabled = $request->input('redirect_disabled') == '1';
+            $request->session()->put('redirect_disabled', $redirectDisabled);
+            // デバッグ用
+            // dd($request->all()); // 確認成功："redirect_disabled" => "1" と表示される
+            // dd($request->session()->all()); // 確認成功："redirect_disabled" => true と表示される
+        }
 
         // トグルスイッチの状態を確認
         if ($request->hasSession()) {
             $redirectDisabled = $request->session()->get('redirect_disabled', false);
+            // 強制リダイレクト無効化が有効でtrueが入り、無効でfalseが入る
             view()->share('redirect_disabled', $redirectDisabled);
         }
-
 
         // 強制リダイレクトが無効化されておらず、かつ、ログインしていない(=userIdを保持していない)、かつ、ログインページへのリクエストではない場合はログインページへリダイレクト
         if (!$redirectDisabled && !$request->session()->has('userId') && !$this->isLoginRequest($request)) {

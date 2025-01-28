@@ -24,13 +24,14 @@
     {{-- 開発用メモ（本番では削除します） --}}
     <br><br><br><br><br>
     <h4 style="color: green">
-        --------開発用メモ（本番前に削除）----------
+        --------開発用メモ----------
     </h4>
     <p style="color: blue">未ログインでは、トップページからログインにリダイレクトされます</p>
-    <h3 style="color: red;">id=1 → 一般<br> id=2 → 総務</h3>
-    <h3 style="color: red;">password: "password"</h3>
+    <p style="color: blue">ログインを行うか、強制リダイレクトを無効化してから各ページにアクセスできます</p>
+    <h5 style="color: rgb(9, 77, 94);">id=1 → 一般<br> id=2 → 総務</h5>
+    <h5 style="color: rgb(9, 77, 94);"">パス: password</h5>
     --------------------------------------------
-    <h2>開発者向け設定</h2>
+    <h2 style="color: orange">開発者向け設定</h2>
     <p>現在の強制リダイレクト状態:
         @if(session('redirect_disabled', false))
             <strong>無効化</strong>
@@ -50,9 +51,9 @@
     </form>
     <p>
         <a href="/books">書籍一覧</a>
-        <a href="/index">メニュー</a>
-        <a href="/db/user_management_create">社員登録</a>
-        <a href="/db/user_management_index">社員登録</a>
+        <a href="/">メニュー</a>
+        <a href="/book_management_index">書籍管理</a>
+        <a href="/user_management">社員管理</a>
     </p>
     --------------------------------------------
     {{-- 開発用ここまで 削除 --}}
