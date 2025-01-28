@@ -11,4 +11,3 @@ Route::get('/',[TopController::class,'index']);
 
 Route::get('db/book_create',[BooksController::class,'create']);
 Route::post('db/book_create',[BooksController::class,'store']);
-Route::get('db/book_cancel',[BooksController::class,'cancel']);

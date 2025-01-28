@@ -8,16 +8,11 @@ class BooksController extends Controller
 {
     public function create()
     {
-        return view('db.create');
+        return view('db.book_create');
     }
 
     public function store(Request $req)
     {
 
-    }
-
-    public function cancel()
-    {
-        return view();
     }
 }
