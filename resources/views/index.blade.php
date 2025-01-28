@@ -7,15 +7,20 @@
 </head>
 <body>
     <h1>メニュー</h1>
-    <div>
-        ID:{{ $userId }}
-        名前:{{ $userName }}
-    </div>
+    @if(isset($userRecord))
+        <div>
+            ID:{{ $userId }}
+            名前:{{ $userName }}
+            user_code:{{ $userCode }}
+        </div>
+    @endif
     <ul>
         <li><a href="{{ route('books.index') }}">書籍一覧</a></li>
-        <li>書籍検索</li>
-        <li><a href="{{ route('user_management.index') }}">社員管理</li>
-        <li>書籍管理</li>
+        <li><a href="{{ route('searchBooks')}}">書籍検索</a></li>
+        @if(isset($userRecord))
+            <li><a href="{{ route('user_management.index') }}">社員管理</li>
+            <li><a href="{{ route('book_management.index')}}">書籍管理</a></li>
+        @endif
     </ul>
 </body>
 </html>

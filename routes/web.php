@@ -8,7 +8,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AuthController; // ログイン認証用に新たに追加で作成したコントローラ
 use App\Http\Controllers\BooksController;
 
-// 「社員管理」
+// 「社員管理」-----------------------------------------------
 
 Route::get('/user_management', function () {
     return view('user_management_index');
@@ -24,7 +24,7 @@ Route::get('/db/user_management_erase', [UsersController::class, 'erase']);
 Route::post('/db/user_management_erase', [UsersController::class, 'erase']);
 Route::post('/db/user_management_delete', [UsersController::class, 'delete']);
 
-// 「書籍管理」
+// 「書籍管理」--------------------------------------------
 // ここで返されるビューは resources/views/index.blade.php
 
 Route::get('/', function () {
@@ -39,21 +39,28 @@ Route::get('/books', [BooksController::class, 'index'])->name('books.index');
 Route::get('/books/{id}', [BooksController::class, 'show'])->name('books.show');
 
 
-// loginフォームページへ遷移する
-Route::get('/login', function () {
-    return view('loginForm');
-});
-
 // -----------------------------------------------
 // 「書籍管理」
 Route::get('/book_management_index', function () {
     return view('book_management_index');
 });
 
-Route::get('db/book_management_create',[BooksController::class,'create']);
-Route::post('db/book_management_store',[BooksController::class,'store']);
+Route::get('db/book_management_create', [BooksController::class, 'create']);
+Route::post('db/book_management_store', [BooksController::class, 'store']);
 
-Route::get('db/book_management_erase',[BooksController::class,'erase']);
+Route::get('db/book_management_erase', [BooksController::class, 'erase']);
 
+// -----------------------------------------
+// loginフォームページへ遷移する
+Route::get('/login', function () {
+    return view('loginForm');
+});
 // loginフォームからPOST
 Route::post('/login', [AuthController::class, 'login']);
+
+
+
+// 「書籍検索」-------------------------------
+Route::get('/searchBooks', function () {
+    return view('search.searchBooksForm');
+});
