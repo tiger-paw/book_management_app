@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>書籍の削除</h1>
-    <a href="{{ route('book_management.index') }}">書籍管理画面に戻る</a>
+    
     @if(isset($record))
         <form action="/db/book_management_delete" method="post">
             @csrf
