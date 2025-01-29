@@ -21,7 +21,6 @@ Route::get('/db/user_management_index', [UsersController::class, 'index']);
 
 //社員新規登録
 Route::get('/db/user_management_create', [UsersController::class, 'create']);
-Route::post('/db/user_management_create_check', [UsersController::class, 'create_check']);
 Route::post('/db/user_management_store', [UsersController::class, 'store']);
 
 //社員削除
