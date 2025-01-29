@@ -7,15 +7,41 @@
 </head>
 <body>
     <h1>書籍の削除</h1>
+    <a href="{{ route('book_management.index') }}">書籍管理画面に戻る</a>
+
     <table class="table">
-        <tr><th>書籍名</th><th>著者名</th><th>おすすめ度</th></tr>
+        <tr>
+            <th>書籍名</th>
+            <th>著者名</th>
+            <th>おすすめ度</th>
+        </tr>
         @foreach($records as $record)
         <tr>
-            <td>{{$record->title}}</td>
-            <td>{{$record->author}}</td>
-            <td>{{$record->public}}</td>
+            <td>{{ $record ->title }}</td>
+            <td>{{ $record ->author }}</td>
+            <td>{{ $record ->published_date }}</td>
+            <td><input type="submit" value="削除"></td>
         </tr>
         @endforeach
     </table>
+<!--
+    @if(isset($record))
+        <form action="/db/book_management_delete" method="post">
+            @csrf
+            書籍名<input type="text" name="b_titile" value="{{ $record ->title }}" readonly><br>
+            著者名<input type="text" name="b_author" value="{{ $record ->author }}" readonly><br>
+            おすすめ度<input type="text" name="b_published" value="{{ $record ->published_date }}" readonly><br>
+
+            <input type="submit" value="削除"><br>
+            <a href="/db/book_management_erase">書籍削除画面に戻る</a>
+        </form>
+    @else
+        <form action="/db/book_management_erase" method="post">
+        @csrf  
+        書籍番号<input type="number" name="id" required>
+            <input type="submit" value="確認">
+        </form>
+    @endif
+-->
 </body>
 </html>
