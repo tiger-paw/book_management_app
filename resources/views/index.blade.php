@@ -2,11 +2,10 @@
 @section('title', 'menu')
 @section('content')
 
-    <h1>メニュー</h1>
-    <ul>
-        <li><a href="{{ route('books.index') }}">書籍一覧</a></li>
-        <li>書籍検索</li>
-        <li><a href="{{ route('user_management.index') }}">社員管理</a></li>
-        <li>書籍管理</li>
-    </ul>
+    <h1>Menu</h1>
+        <a href="{{ route('books.index') }}" class="btn btn-secondary">書籍一覧</a>
+        <a href="" class="btn btn-secondary">書籍検索</a>
+        <a href="{{ route('user_management.index') }}" class="btn btn-secondary">社員管理</a>
+        <a href="/book_management_index" class="btn btn-secondary">書籍管理</a>
+        
 @endsection

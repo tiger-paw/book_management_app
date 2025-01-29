@@ -7,11 +7,11 @@
         <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
     </div>
     <h1>{{ $book->title }} の書籍詳細</h1>
-    <p><strong>著者:</strong> {{ $book->author }}</p>
-    <p><strong>説明:</strong> {{ $book->description }}</p>
-    <p><strong>出版日:</strong> {{ $book->published_date }}</p>
-    <p><strong>ISBN:</strong> {{ $book->ISBN }}</p>
-    <p><strong>画像URL:</strong> <img src="{{ $book->image_url }}" alt="{{ $book->title }}"></p>
+    <p><strong>著者：</strong> {{ $book->author }}</p>
+    <p><strong>説明：</strong> {{ $book->description }}</p>
+    <p><strong>出版日：</strong> {{ $book->published_date }}</p>
+    <p><strong>ISBN：</strong> {{ $book->ISBN }}</p>
+    <p><strong>画像URL：</strong> <img src="{{ $book->image_url }}" alt="{{ $book->title }}"></p>
     <!-- レビューの新規投稿フォーム -->
     <a href="{{ route('reviews.create', $book->b_id) }}" class="btn btn-primary">レビューを投稿する</a>
     <hr>
