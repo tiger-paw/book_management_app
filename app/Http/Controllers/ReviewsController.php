@@ -64,4 +64,17 @@ class ReviewsController extends Controller
         // レビューの編集フォームに遷移する
         return view('books.reviews.edit', compact('book', 'review'));
     }
+
+    // レビューの編集内容確認画面を表示
+    public function updateCheck($bookId,Request $req)
+    {
+        // 書籍情報を取得
+        $book = Book::findOrFail($bookId);
+        $data=[
+            'comment' => $req->comment,
+            'rating' => $req->rating,
+        ];
+        // レビューの編s乳内容確認画面に遷移する
+        return view('books.reviews.update_check',compact('book','data'));
+    }
 }
