@@ -35,17 +35,16 @@ class AuthController extends Controller
             $req->session()->put('userCode', $userCode); // ユーザーコードをセッションに保存
             $req->session()->put('isAdmin', $isAdmin);
 
-            // return redirect('/')->with([
-            //     'userRecord' => $userRecord,
-            //     'userId' => $userId,
-            //     'userName' => $userName,
-            //     'userCode' => $userCode,
-            //     'isAdmin' => $isAdmin,
-            // ]);
-
             return redirect('/');
         } else {
             return view('login_form');
         }
+    }
+
+    public function logout(Request $req)
+    {
+        $req->session()->flush();
+
+        return redirect('/login');
     }
 }

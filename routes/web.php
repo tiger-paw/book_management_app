@@ -91,10 +91,15 @@ Route::get('/login', function () {
 // loginフォームからPOST
 Route::post('/login', [AuthController::class, 'login']);
 
+// ログアウト
+Route::post('/logout', [AuthController::class, 'logout']);
+
+
 // 強制リダイレクトを無効化（開発者向け設定）
 Route::post('/toggle-redirect', [ToggleRedirectController::class, 'toggle']);
 
-// 「書籍検索」-------------------------------
+// -----------------------------------------------
+// 「書籍検索」
 Route::get('/search_books_form', function () {
     return view('search.search_books_form');
 });
