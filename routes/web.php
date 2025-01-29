@@ -11,16 +11,20 @@ use App\Http\Controllers\ReviewsController;
 // メニュー画面を表示
 // 「社員管理」
 
+//社員管理画面ホーム
 Route::get('/user_management', function () {
     return view('user_management_index');
 })->name('user_management.index');
 
-
+//社員一覧表示
 Route::get('/db/user_management_index', [UsersController::class, 'index']);
 
+//社員新規登録
 Route::get('/db/user_management_create', [UsersController::class, 'create']);
+Route::post('/db/user_management_create_check', [UsersController::class, 'create_check']);
 Route::post('/db/user_management_store', [UsersController::class, 'store']);
 
+//社員削除
 Route::get('/db/user_management_erase', [UsersController::class, 'erase']);
 Route::post('/db/user_management_erase', [UsersController::class, 'erase']);
 Route::post('/db/user_management_delete', [UsersController::class, 'delete']);
