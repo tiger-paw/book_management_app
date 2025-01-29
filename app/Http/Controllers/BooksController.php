@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Review;
 
 class BooksController extends Controller
 {
@@ -40,9 +41,10 @@ class BooksController extends Controller
         return view('books.index', compact('books')); // ビューに渡す
     }
     // 書籍詳細画面
-    public function show($id)
+    public function show($b_id)
     {
-        $book = Book::findOrFail($id); // IDで書籍を取得、見つからなければ404エラー
-        return view('books.show', compact('book')); // 詳細ビューに渡す
+        $book = Book::findOrFail($b_id); // IDで書籍を取得、見つからなければ404エラー
+        $reviews = Review::where('b_id', $b_id)->get(); // レビュー情報を取得
+        return view('books.show', compact('book','reviews')); // 詳細ビューに渡す
     }
 }

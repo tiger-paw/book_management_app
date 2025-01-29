@@ -9,6 +9,6 @@
 <body>
     <h1>レビュー削除完了</h1>
     <p>レビューの削除が完了しました。</p>
-    <a href="{{ route('books.show', $review->book_id) }}">書籍詳細へ戻る</a>
+    <a href="{{ route('books.show', $review->r_id) }}">書籍詳細へ戻る</a>
 </body>
 </html>

@@ -27,7 +27,7 @@ class ReviewsController extends Controller
         return view('books.reviews.create',compact('bookId'));
     }
 
-    // レビューの新規投稿内容確認画面を表示
+    // レビューの新規投稿内容確認ページを表示
     public function createCheck($bookId,Request $req)
     {
         // 書籍情報を取得
@@ -36,11 +36,11 @@ class ReviewsController extends Controller
             'comment' => $req->comment,
             'rating' => $req->rating,
         ];
-        // レビューの新規投稿内容確認画面に遷移する
+        // レビューの新規投稿内容確認ページに遷移する
         return view('books.reviews.create_check',compact('book','data'));
     }
 
-    // レビューを保存し、レビュー新規投稿完了画面を表示
+    // レビューを保存し、レビュー新規投稿完了ページを表示
     public function store($bookId, Request $req)
     {
         // レビュー内容を保存
@@ -50,7 +50,7 @@ class ReviewsController extends Controller
         $review ->rating = $req ->rating;
         $review ->u_id = 1;
         $review ->save();
-        // レビューの新規投稿完了画面に遷移する
+        // レビューの新規投稿完了ページに遷移する
         return view('books.reviews.store', compact('bookId')); 
     }
 
@@ -65,7 +65,7 @@ class ReviewsController extends Controller
         return view('books.reviews.edit', compact('book', 'review'));
     }
 
-    // レビューの編集内容確認画面を表示
+    // レビューの編集内容確認ページを表示
     public function updateCheck($bookId, $reviewId, Request $req)
     {
         // 書籍情報を取得
@@ -74,11 +74,11 @@ class ReviewsController extends Controller
         $review = Review::findOrFail($reviewId);
         // フォームで送信された内容を一時的に保持
         $data = $req->all();
-        // レビューの編集内容確認画面に遷移する
+        // レビューの編集内容確認画ページに遷移する
         return view('books.reviews.update_check',compact('book','review','data'));
     }
 
-    // レビューの編集内容保存処理
+    // レビューの編集完了ページを表示
     public function update($bookId, $reviewId, Request $req)
     {
         // 書籍情報を取得
@@ -92,5 +92,32 @@ class ReviewsController extends Controller
         ]);
         // レビューの編集完了ページに遷移する
         return view('books.reviews.update', compact('book', 'review'));
+    }
+
+    // レビューの削除確認ページを表示
+    public function erase($bookId, $reviewId)
+    {
+        // 削除対象のレビューを取得：IDに該当するレビューが存在しなければ404エラー
+        $review = Review::findOrFail($reviewId);
+        // レビューの削除確認ページに遷移する
+        return view('books.reviews.delete', compact('bookId', 'review'));
+    }
+
+    // レビューの削除処理
+    public function destroy($reviewId)
+    {
+        // 削除対象のレビューを取得：
+        $review = Review::findOrFail($reviewId);
+        // レビューを削除
+        $review->delete();
+        // レビュー削除完了ページにリダイレクト
+        return redirect()->route('reviews.delete');
+    }
+
+    // レビューの削除完了ページを表示
+    public function delete()
+    {
+        // レビューの完了確認ページに遷移する
+        return view('books.reviews.delete');
     }
 }

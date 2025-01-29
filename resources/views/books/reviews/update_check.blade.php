@@ -10,7 +10,7 @@
     <h1>レビュー編集確認</h1>
     <p>新しい内容:</p>
     <p>{{ $data['comment'] }}</p>
-    <form action="{{ route('reviews.update', ['bookId' => $book->b_id, 'reviewId' => $review->r_id]) }}" method="POST">
+    <form action="{{ route('reviews.update', ['bookId' => $book->b_id, 'reviewId' => $review->r_id]) }}" method="PUT">
         @csrf
         @method('PUT')
         <input type="hidden" name="content" value="{{ $data['comment'] }}">

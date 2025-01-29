@@ -14,7 +14,7 @@
             @foreach($books as $book)
                 <li>
                     <!-- 書籍名をクリックすると詳細ページに遷移 -->
-                    <p>書籍名：<a href="{{ route('books.show', $book->b_id) }}">{{ $book->title }}</a> - 著者名：{{ $book->author }}</p>
+                    <p>書籍名：<a href="{{ route('books.show', ['id' => $book->b_id]) }}">{{ $book->title }}</a> - 著者名：{{ $book->author }}</p>
                 </li>
             @endforeach
         </ul>
