@@ -11,12 +11,10 @@
         <tr>
             <th>書籍名</th>
             <th>著者名</th>
-            <th>おすすめ度</th>
         </tr>
         <tr>
             <td>{{ $b_title}}</td> 
             <td>{{ $b_author }}</td>
-            <td>{{ $b_published }}</td>
         </tr>
     </table>
     <br>
