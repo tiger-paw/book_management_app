@@ -56,6 +56,14 @@ class BooksController extends Controller
         ];
         return view('db.book_management_delete',$data);
     }
+
+    public function delete_index()
+    {
+        $data = [
+            'records' => Book::all()
+        ];
+        return view('db.book_management_delete_index', $data);
+    }
     
     // 書籍一覧画面
     public function index()

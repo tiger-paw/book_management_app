@@ -69,6 +69,7 @@ Route::post('db/book_management_store', [BooksController::class, 'store']);
 Route::get('db/book_management_erase', [BooksController::class, 'erase']);
 Route::post('/db/book_management_erase', [BooksController::class, 'erase']);
 Route::post('/db/book_management_delete', [BooksController::class, 'delete']);
+Route::get('/db/book_managemnt_delete_index', [BooksController::class, 'delete_index']);
 
 
 // -----------------------------------------

@@ -19,6 +19,9 @@
             <a href="/db/book_management_erase">書籍削除画面に戻る</a>
         </form>
     @else
+        <ul>
+            <li><a href="/db/book_management_delete_index">書籍一覧表示</a></li>
+        </ul>
         <form action="/db/book_management_erase" method="post">
         @csrf  
         書籍番号<input type="number" name="b_id" required>
