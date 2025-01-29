@@ -22,7 +22,7 @@
                     <p>評価: {{ $review->rating }} / 5</p>
                     <p>コメント: {{ $review->comment }}</p>
                     <!-- 投稿者のみに表示 -->
-                    @if ($review->u_id === Auth::id())
+                    @if ($review->u_id == session("userId")) <!-- loginの実装完了後要修正 -->
                         <!-- レビュー編集リンク：投稿者のみ表示 -->
                         <a href="{{ route('reviews.edit', ['bookId' => $book->b_id, 'reviewId' => $review->r_id]) }}" class="btn btn-primary">編集</a>
                         <!-- レビュー削除リンク：投稿者のみ表示 -->

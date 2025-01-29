@@ -49,7 +49,7 @@ class ReviewsController extends Controller
         $review ->b_id = $bookId;
         $review ->comment = $req ->comment;
         $review ->rating = $req ->rating;
-        $review ->u_id = 1;
+        $review ->u_id = session("userId"); // loginの実装完了後要修正
         $review ->save();
         // レビューの新規投稿完了ページに遷移する
         return view('books.reviews.store', compact('bookId')); 
