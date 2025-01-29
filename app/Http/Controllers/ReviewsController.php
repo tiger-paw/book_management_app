@@ -66,7 +66,7 @@ class ReviewsController extends Controller
     }
 
     // レビューの編集内容確認画面を表示
-    public function updateCheck(Request $req, $bookId, $reviewId)
+    public function updateCheck($bookId, $reviewId, Request $req)
     {
         // 書籍情報を取得
         $book = Book::findOrFail($bookId);
@@ -79,9 +79,9 @@ class ReviewsController extends Controller
     }
 
     // レビューの編集内容保存処理
-    public function update(Request $request, $bookId, $reviewId)
+    public function update($bookId, $reviewId, Request $req)
     {
-        // 書籍情報を取得（存在確認）
+        // 書籍情報を取得
         $book = Book::findOrFail($bookId);
         // 更新対象のレビューを取得
         $review = Review::findOrFail($reviewId);

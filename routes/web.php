@@ -58,7 +58,6 @@ Route::post('/books/{bookId}/reviews/{reviewId}/update_check', [ReviewsControlle
 // 編集完了ページの表示：データベースに更新内容を保存し、完了メッセージを表示
 Route::post('/books/{bookId}/reviews/{reviewId}/update', [ReviewsController::class, 'update'])->name('reviews.update');
 
-
 // レビュー削除関連
 
 // -----------------------------------------------

@@ -16,6 +16,6 @@
         <input type="hidden" name="content" value="{{ $data['comment'] }}">
         <button type="submit">更新</button>
     </form>
-    <a href="{{ route('reviews.edit', $review->id) }}">戻る</a>
+    <a href="{{ route('reviews.edit', ['bookId' => $book->b_id, 'reviewId' => $review->r_id]) }}">戻る</a>
 </body>
 </html>
