@@ -7,12 +7,16 @@ use App\Models\Book;
 
 class BooksController extends Controller
 {
-    // 「書籍管理」
+
+// 「書籍管理」
+
+    //書籍新規登録
     public function create()
     {
         return view('db.book_management_create');
     }
 
+    //書籍の登録
     public function store(Request $req)
     {
         $book = new Book();
@@ -28,13 +32,15 @@ class BooksController extends Controller
         return view('db.book_management_store', $data);
     }
 
-    public function erase(Request $req)
-    {
-        if ($req->isMethod('get')) {
+
+
+    //書籍削除
+    public function erase(Request $req){
+        if($req ->isMethod('get')){
             return view('db.book_management_erase');
-        } elseif ($req->isMethod('post')) {
-            $data = [
-                'record' => Book::all()
+        }elseif($req ->isMethod('post')){
+            $data=[
+                'records' => Book::all()
             ];
             return view('db.book_management_erase', $data);
         } else {
