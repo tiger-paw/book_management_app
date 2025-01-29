@@ -21,6 +21,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a href="/" class="navbar-brand">書籍管理アプリ</a>
+            <div class="ml-auto">
+                <a href="/login" class="btn btn-outline-light">ログイン</a>
+            </div>
         </div>
     </nav>
 
