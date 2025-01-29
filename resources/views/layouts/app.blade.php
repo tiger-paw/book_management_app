@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand">書籍管理アプリ</a>
+            <a href="/" class="navbar-brand">書籍管理アプリ</a>
         </div>
     </nav>
 
