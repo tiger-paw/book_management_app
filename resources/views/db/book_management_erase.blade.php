@@ -19,6 +19,7 @@
             <a href="/book_management_index">書籍削除画面に戻る</a>
         </form>
     @else
+        <p>書籍一覧から削除したい書籍の番号を選択してください</p>
         <ul>
             <li><a href="/db/book_management_delete_index">書籍一覧表示</a></li>
         </ul>

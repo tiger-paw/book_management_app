@@ -10,7 +10,7 @@
     <a href="/db/book_management_erase">書籍管理画面に戻る</a>
     <table class="table">
         <tr>
-            <th>書籍ID</th>
+            <th>書籍番号</th>
             <th>書籍名</th>
             <th>著者名</th>
         </tr>
