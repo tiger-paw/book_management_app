@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Review;
+use Illuminate\Pagination\Paginator;
 
 class BooksController extends Controller
 {
@@ -37,7 +38,7 @@ class BooksController extends Controller
     // 書籍一覧画面
     public function index()
     {
-        $books = Book::all(); // すべての書籍を取得
+        $books = Book::paginate(10); // 1ページに10件ずつ書籍を表示
         return view('books.index', compact('books')); // ビューに渡す
     }
     // 書籍詳細画面

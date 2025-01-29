@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>書籍一覧</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('title', '書籍一覧')
+@section('content')
     <h1>書籍一覧</h1>
     @if($books->isEmpty()) <!-- 書籍がなければ -->
         <p>書籍はありません。</p>
@@ -18,8 +13,11 @@
                 </li>
             @endforeach
         </ul>
+        <!-- ページネーションリンク -->
+        <div class="d-flex justify-content-center">
+            {{ $books->links('pagination::simple-bootstrap-5') }}
+        </div>
     @endif
     <!-- 戻るリンク -->
     <a href="{{ route('index') }}">メニューに戻る</a>
-</body>
-</html>
+@endsection

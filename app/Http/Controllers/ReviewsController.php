@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Review;
@@ -100,24 +101,24 @@ class ReviewsController extends Controller
         // 削除対象のレビューを取得：IDに該当するレビューが存在しなければ404エラー
         $review = Review::findOrFail($reviewId);
         // レビューの削除確認ページに遷移する
-        return view('books.reviews.delete', compact('bookId', 'review'));
+        return view('books.reviews.erase', compact('bookId', 'review'));
     }
 
     // レビューの削除処理
-    public function destroy($reviewId)
+    public function destroy($bookId, $reviewId, Request $req)
     {
-        // 削除対象のレビューを取得：
-        $review = Review::findOrFail($reviewId);
         // レビューを削除
+        $review = Review::findOrFail($reviewId);
         $review->delete();
-        // レビュー削除完了ページにリダイレクト
-        return redirect()->route('reviews.delete');
+
+        // 削除後、レビュー一覧ページにリダイレクト
+        return redirect()->route('reviews.delete', $bookId);
     }
 
     // レビューの削除完了ページを表示
-    public function delete()
+    public function delete($bookId)
     {
         // レビューの完了確認ページに遷移する
-        return view('books.reviews.delete');
+        return view('books.reviews.delete', compact('bookId'));
     }
 }
