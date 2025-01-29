@@ -10,9 +10,8 @@
     <a href="{{ route('user_management.index') }}">社員管理画面に戻る</a>
 
     @if(isset($record))
-    <form action="/db/user_management_erase" method="post">
+    <form action="/db/user_management_delete" method="post">
             @csrf
-            <input type="hidden" name="id" value="{{ $record ->id }}" readonly><br>
             社員番号<input type="text" name="u_id" value="{{ $record ->u_id }}" readonly><br>
             社員名<input type="text" name="u_name" value="{{ $record ->u_name }}" readonly><br>
             部署ID<input type="text" name="d_id" value="{{ $record ->d_id }}" readonly><br>
