@@ -24,7 +24,7 @@ class Review extends Model
     // リレーションシップの設定
     // 相手テーブル名（単数形）：book
     public function book(){
-        return $this->belongsTo(Book::class);
+        return $this->belongsTo(Book::class, 'b_id');
         // 相手モデル名（単数形）：Book
     }
     // 相手テーブル名（単数形）：user

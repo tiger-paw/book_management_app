@@ -1,20 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>レビューの削除確認</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('title', 'レビューの削除確認')
+@section('content')
+    <!-- 戻るリンク -->
+    <div class="d-flex justify-content-end gap-2">
+        <a href="{{ route('books.index') }}" class="btn btn-secondary">書籍一覧に戻る</a>
+        <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
+    </div>
+    <!-- 削除確認ページ -->
     <h1>レビュー削除確認</h1>
     <p>本当にこのレビューを削除しますか？</p>
-    <p>{{ $review->content }}</p>
-    <form action="{{ route('reviews.destroy', $review->id) }}" method="POST">
+    <div class="border p-3 mb-3 rounded">
+    <p>書籍名：<br>{{ $review->book->title }}</p>
+    <p>評価：<br>{{ $review->rating }}</p>
+    <p>レビュー内容：<br>{{ $review->comment }}</p>
+    </div>
+    <!-- 削除処理フォーム -->
+    <form action="/books/{{ $bookId }}/reviews/{{ $review->r_id }}/destroy" method="POST">
+    {{-- 以下のURLだと、Http始まりになる　上記のURLだと、/books始まりになる　前者でないとエラー --}}
+    {{-- <form action="{{ route('reviews.destroy', ['bookId' => $bookId, 'reviewId' => $review->r_id]) }}" method="POST" > --}}
         @csrf
         @method('DELETE')
-        <button type="submit">削除</button>
+        <input type="submit" value="削除" class="btn btn-danger">
+        <a href="{{ route('books.show', ['id' => $bookId]) }}" class="btn btn-secondary">戻る</a>
     </form>
-    <a href="{{ route('books.show', $review->book_id) }}">キャンセル</a>
-</body>
-</html>
+@endsection
