@@ -37,7 +37,7 @@ class BooksController extends Controller
             return view('db.book_management_erase');
         }elseif($req ->isMethod('post')){
             $data=[
-                'record' => Book::all()
+                'records' => Book::all()
             ];
             return view('db.book_management_erase',$data);
         }else{
