@@ -9,13 +9,13 @@
 </head>
 <body>
     <h1>レビュー編集</h1>
-    <form action="" method="POST">
-        @csrf
+    <form action="{{ route('reviews.update.check', ['bookId' => $book->b_id, 'reviewId' => $review->r_id]) }}" method="POST">
+    @csrf
         <br>
         <label for="rating" class="form-label">評価：以下の選択肢から一つ選択してください　</label>
         @for ($i = 1; $i <= 5; $i++)
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="rating" id="rating{{ $i }}" value="{{ $i }}" required {{$i == $review->rating ? "checked" : ""}}>
+                <input class="form-check-input" type="radio" name="rating" id="rating{{ $i }}" value="{{ $i }}" required {{ $i == $review->rating ? 'checked' : '' }}>
                 <label class="form-check-label" for="rating{{ $i }}">{{ $i }}</label>
             </div>
         @endfor

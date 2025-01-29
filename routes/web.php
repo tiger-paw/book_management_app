@@ -54,8 +54,13 @@ Route::get('/books/{bookId}/reviews/create', [ReviewsController::class, 'create'
 Route::post('/books/{bookId}/reviews/create_check', [ReviewsController::class, 'createCheck'])->name('reviews.create.check');
 Route::post('/books/{bookId}/reviews/store', [ReviewsController::class, 'store'])->name('reviews.store');
 
-// レビュー更新関連
+// レビュー編集関連
+// レビュー編集フォームの表示：編集対象のレビューを取得し、編集フォームを表示
 Route::get('/books/{bookId}/reviews/{reviewId}/edit', [ReviewsController::class, 'edit'])->name('reviews.edit');
+// 編集内容確認ページの表示：レビュー編集フォームのデータを取得し、確認画面を表示
+Route::post('/books/{bookId}/reviews/{reviewId}/update_check', [ReviewsController::class, 'updateCheck'])->name('reviews.update.check');
+// 編集完了ページの表示：データベースに更新内容を保存し、完了メッセージを表示
+Route::post('/books/{bookId}/reviews/{reviewId}/update', [ReviewsController::class, 'update'])->name('reviews.update');
 
 // レビュー削除関連
 

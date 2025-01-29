@@ -9,13 +9,13 @@
 <body>
     <h1>レビュー編集確認</h1>
     <p>新しい内容:</p>
-    <p>{{ $data['content'] }}</p>
-    <form action="{{ route('reviews.update', $review->id) }}" method="POST">
+    <p>{{ $data['comment'] }}</p>
+    <form action="{{ route('reviews.update', ['bookId' => $book->b_id, 'reviewId' => $review->r_id]) }}" method="POST">
         @csrf
         @method('PUT')
-        <input type="hidden" name="content" value="{{ $data['content'] }}">
+        <input type="hidden" name="content" value="{{ $data['comment'] }}">
         <button type="submit">更新</button>
     </form>
-    <a href="{{ route('reviews.edit', $review->id) }}">戻る</a>
+    <a href="{{ route('reviews.edit', ['bookId' => $book->b_id, 'reviewId' => $review->r_id]) }}">戻る</a>
 </body>
 </html>
