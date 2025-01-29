@@ -86,3 +86,5 @@ Route::post('/toggle-redirect', [ToggleRedirectController::class, 'toggle']);
 Route::get('/search_books_form', function () {
     return view('search.search_books_form');
 });
+// 書籍検索
+Route::get('/search_books_result', [BooksController::class, 'search']);
