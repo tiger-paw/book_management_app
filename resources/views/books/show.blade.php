@@ -1,7 +1,11 @@
 @extends('layouts.app')
 @section('title', '書籍詳細')
 @section('content')
-
+    <!-- 戻るリンク -->
+    <div class="d-flex justify-content-end gap-2">
+        <a href="{{ route('books.index') }}" class="btn btn-secondary">書籍一覧に戻る</a>
+        <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
+    </div>
     <h1>{{ $book->title }} の書籍詳細</h1>
     <p><strong>著者:</strong> {{ $book->author }}</p>
     <p><strong>説明:</strong> {{ $book->description }}</p>
@@ -33,9 +37,4 @@
         </ul>
     </div>
     @endif
-    <br>
-    <!-- 戻るリンク -->
-    <a href="{{ route('books.index') }}">書籍一覧に戻る</a>
-    <br>
-    <a href="{{ route('index') }}">メニューに戻る</a>
 @endsection

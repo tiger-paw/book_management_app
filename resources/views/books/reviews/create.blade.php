@@ -1,7 +1,11 @@
 @extends('layouts.app')
 @section('title', 'レビューの新規投稿')
 @section('content')
-
+    <!-- 戻るリンク -->
+    <div class="d-flex justify-content-end gap-2">
+        <a href="{{ route('books.index') }}" class="btn btn-secondary">書籍一覧に戻る</a>
+        <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
+    </div>
     <h1>レビューの新規投稿</h1>
     <form action="{{ route('reviews.create.check', $bookId) }}" method="post">
         @csrf
@@ -18,8 +22,8 @@
         <textarea class="form-control" name="comment" id="comment" required></textarea>
         <br>
         <div class="d-flex gap-2">
-        <input type="submit" value="確認" class="btn btn-primary">
-        <a href="{{ route('books.show', ['id' => $bookId]) }}" class="btn btn-secondary">戻る</a>
+            <input type="submit" value="確認" class="btn btn-primary">
+            <a href="{{ route('books.show', ['id' => $bookId]) }}" class="btn btn-secondary">戻る</a>
         </div>
     </form>
 

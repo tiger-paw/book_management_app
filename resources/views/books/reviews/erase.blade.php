@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('title', 'レビューの削除確認')
 @section('content')
+    <!-- 戻るリンク -->
+    <div class="d-flex justify-content-end gap-2">
+        <a href="{{ route('books.index') }}" class="btn btn-secondary">書籍一覧に戻る</a>
+        <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
+    </div>
     <!-- 削除確認ページ -->
     <h1>レビュー削除確認</h1>
     <p>本当にこのレビューを削除しますか？</p>
