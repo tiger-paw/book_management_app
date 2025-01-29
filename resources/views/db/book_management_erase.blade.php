@@ -16,7 +16,7 @@
             著者名<input type="text" name="b_author" value="{{ $record ->author }}" readonly><br>
 
             <input type="submit" value="削除"><br>
-            <a href="/db/book_management_index">書籍削除画面に戻る</a>
+            <a href="/book_management_index">書籍削除画面に戻る</a>
         </form>
     @else
         <ul>
@@ -27,7 +27,7 @@
         書籍番号<input type="number" name="b_id" required>
             <input type="submit" value="確認">
         </form>
-        <a href="/db/book_management_index">書籍削除画面に戻る</a>
+        <a href="/book_management_index">書籍削除画面に戻る</a>
     @endif
 </body>
 </html>
