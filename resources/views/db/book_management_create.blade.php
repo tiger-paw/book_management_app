@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1>書籍の新規登録</h1>
-    <form action="/db/book_management_store" method="post">
+    <form action="/db/book_store" method="post">
         @csrf 
         <div class="mb-3">
             <label for="book_name" ckass="form-label">書籍名</label>
@@ -27,7 +27,12 @@
             <textarea class="form-control" name="detail_item" id="detail_item" required></textarea>
         </div>
         <input type="submit" value="確認" class="btn btn-primary">
-    </form>  
-    
-    </body>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+    crossorigin="anonymous"></script>   
+    <form action="/db/book_cancel" method="get"> 
+        <input type="submit" value="キャンセル" class="btn btn-primary">  
+    </form>
+</body>
 </html>
