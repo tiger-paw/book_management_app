@@ -38,7 +38,7 @@ class BooksController extends Controller
         }elseif($req ->isMethod('post')){
             $b_id= $req -> b_id;
             $data=[
-                'record' => Book::find($b_id)
+                'records' => Book::all()
             ];
             return view('db.book_management_erase',$data);
         }else{
