@@ -2,6 +2,7 @@
 @section('title', 'menu')
 @section('content')
 
+    <h1>Menu</h1>
     @if($isAdmin)
         <a href="{{ route('books.index') }}" class="btn btn-secondary">書籍一覧</a>
         <a href="/search_books_form" class="btn btn-secondary">書籍検索</a>
