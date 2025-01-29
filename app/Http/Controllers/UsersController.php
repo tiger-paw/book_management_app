@@ -25,6 +25,7 @@ class UsersController extends Controller
     public function create(){
         return view('db.user_management_create');
     }
+
     //登録画面の表示
     public function store(Request $req){
 
