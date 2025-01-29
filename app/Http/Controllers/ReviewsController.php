@@ -66,15 +66,31 @@ class ReviewsController extends Controller
     }
 
     // レビューの編集内容確認画面を表示
-    public function updateCheck($bookId,Request $req)
+    public function updateCheck(Request $req, $bookId, $reviewId)
     {
         // 書籍情報を取得
         $book = Book::findOrFail($bookId);
-        $data=[
+        // レビュー情報を取得
+        $review = Review::findOrFail($reviewId);
+        // フォームで送信された内容を一時的に保持
+        $data = $req->all();
+        // レビューの編集内容確認画面に遷移する
+        return view('books.reviews.update_check',compact('book','review','data'));
+    }
+
+    // レビューの編集内容保存処理
+    public function update(Request $request, $bookId, $reviewId)
+    {
+        // 書籍情報を取得（存在確認）
+        $book = Book::findOrFail($bookId);
+        // 更新対象のレビューを取得
+        $review = Review::findOrFail($reviewId);
+        // レビューを編集内容フォームの内容に更新
+        $review->update([
             'comment' => $req->comment,
             'rating' => $req->rating,
-        ];
-        // レビューの編s乳内容確認画面に遷移する
-        return view('books.reviews.update_check',compact('book','data'));
+        ]);
+        // レビューの編集完了ページに遷移する
+        return view('books.reviews.update', compact('book', 'review'));
     }
 }

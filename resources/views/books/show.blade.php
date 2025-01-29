@@ -23,8 +23,8 @@
                     <p>投稿者名： {{ $review->user->u_name }}</p>
                     <p>評価: {{ $review->rating }} / 5</p>
                     <p>コメント: {{ $review->comment }}</p>
-                    <a href="{{ route('reviews.edit', ["bookId" => $book->b_id, "reviewId" => $review->r_id]) }}">レビューを編集する</a>
-                    <a href="{{ route('reviews.edit', ["bookId" => $book->b_id, "reviewId" => $review->r_id]) }}">レビューを削除する</a>
+                    <a href="{{ route('reviews.edit', ['bookId' => $book->b_id, 'reviewId' => $review->r_id]) }}">レビューを編集する</a>
+                    <a href="{{ route('reviews.edit', ['bookId' => $book->b_id, 'reviewId' => $review->r_id]) }}">レビューを削除する</a>
                 </li>
             @endforeach
         </ul>
