@@ -2,7 +2,14 @@
 @section('title', 'menu')
 @section('content')
 
-    {{--  --}}
+    {{-- フラッシュメッセージの表示 --}}
+    @if (session('message'))
+        <div class="alert alert-warning">
+            {{ session('message') }}
+        </div>
+    @endif
+
+    {{-- ログインフォーム --}}
     <h1>ログイン</h1>
     <form action="/login" method="POST">
         @csrf

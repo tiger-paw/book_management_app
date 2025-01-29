@@ -20,7 +20,6 @@ class ShareUserData
         if ($request->has('redirect_disabled')) {
             $redirectDisabled = $request->input('redirect_disabled') == '1';
             $request->session()->put('redirect_disabled', $redirectDisabled);
-
         }
 
         // トグルスイッチの状態を確認
@@ -32,7 +31,9 @@ class ShareUserData
 
         // 強制リダイレクトが無効化されておらず、かつ、ログインしていない(=userIdを保持していない)、かつ、ログインページへのリクエストではない場合はログインページへリダイレクト
         if (!$redirectDisabled && !$request->session()->has('userId') && !$this->isLoginRequest($request)) {
-            return redirect('/login');
+            // return redirect('/login');
+            return redirect('/login')->with('message', 'ログインしてください');
+
         }
 
         // セッションからデータを取得
