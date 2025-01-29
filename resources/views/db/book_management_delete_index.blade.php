@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>全件表示</h1>
-    <a href="{{ route('user_management.index') }}">書籍管理画面に戻る</a>
+    <a href="{{ route('book_management.index') }}">書籍管理画面に戻る</a>
     <table class="table">
         <tr>
             <th>書籍ID</th>
