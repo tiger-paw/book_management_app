@@ -12,7 +12,7 @@
 <h1>社員の新規登録</h1>
 <a href="{{ route('user_management.index') }}">社員管理画面に戻る</a>
     
-    <form action="/db/user_management_create_store" method="post">
+    <form action="/db/user_management_store" method="post">
         @csrf
         <p>社員名：<input type="text" name="u_name" class="navbar-brand mb-0 h1"required></p>
         <p>パスワード：<input type="password" name="password" required></p>
