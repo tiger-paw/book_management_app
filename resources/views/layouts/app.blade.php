@@ -25,7 +25,9 @@
     </nav>
 
     <div class="container d-flex justify-content-center align-items-center">
-        @yield('content')
+        <div>
+            @yield('content')
+        </div>
     </div>
 
     <footer class="bg-dark text-light text-center py-3 mt-5">

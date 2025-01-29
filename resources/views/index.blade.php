@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('title', 'menu')
 @section('content')
-{{-- flexboxで中央揃えにしているため、コンテンツ全体をdivタグで囲んでください --}}
-<div>
     {{-- Menuタイトル部分 --}}
     <div class="text-center mb-4">
         <h1>Menu</h1>
@@ -20,6 +18,4 @@
             <a href="/search_books_form" class="btn btn-secondary mx-2">書籍検索</a>
         @endif
     </div>
-</div>
-
 @endsection
