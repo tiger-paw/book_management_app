@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
                 //リレーションシップの作成
     public function department(){
-        return $this->belongsTo(D_id::class);
+        return $this->belongsTo(Department::class);
     }
 
     /**

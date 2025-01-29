@@ -14,7 +14,7 @@ class UsersController extends Controller
     }
     public function index(){
         $data = [
-            'records' => User::all()
+            'records' => User::All()
         ];
         //return view('db.index',$data);
         return view('db.user_management_index',$data);
@@ -45,13 +45,25 @@ class UsersController extends Controller
         if($req ->isMethod('get')){
             return view('db.user_management_erase');
         }elseif($req ->isMethod('post')){
-            $id= $req -> id;
+            $u_id= $req -> u_id;
             $data=[
-                'record' => User::find($id)
+                'record' => User::find($u_id)
             ];
             return view('db.user_management_erase',$data);
         }else{
-            redirect('/');
+            redirect('db.user_management_erase');
         }
+    }
+    public function delete(Request $req){
+        $users = User::find($req ->u_id);
+        $users -> delete();
+        $data=[
+            'u_id' => $req -> u_id,
+            'u_name' =>  $req ->u_name,
+            'password' => $req ->password,
+            'd_id' => $req ->d_id,
+            'user_code' => $req ->user_code
+        ];
+        return view('db.user_management_delete',$data);
     }
 }
