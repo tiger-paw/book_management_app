@@ -28,6 +28,6 @@
         </div>
         <input type="submit" value="確認" class="btn btn-primary">
     </form>  
-    
+    <a href="/">書籍登録メニューに戻る</a>
     </body>
 </html>
