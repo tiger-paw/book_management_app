@@ -6,8 +6,7 @@
     <title>書籍の削除</title>
 </head>
 <body>
-    <h1>書籍の削除</h1>
-    
+    <h1>書籍の削除</h1>  
     @if(isset($record))
         <form action="/db/book_management_delete" method="post">
             @csrf
