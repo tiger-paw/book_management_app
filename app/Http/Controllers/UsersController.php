@@ -57,6 +57,8 @@ class UsersController extends Controller
             redirect('db.user_management_erase');
         }
     }
+           //社員の削除完了の画面
+
     public function delete(Request $req){
         $users = User::find($req ->u_id);
         $users -> delete();
