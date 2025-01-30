@@ -82,20 +82,18 @@ class BooksController extends Controller
     // ISBNから表紙画像を取得
     public function getBookCover($isbn)
     {
+        // ISBNがセットされていなかったらすぐにnullを返す
+        if (!$isbn) {
+            return null;
+        }
         // OpenBD APIを使用してISBNを検索
-        /*
-        $openbdResponse  = Http::get("https://api.openbd.jp/v1/get", [
-            'isbn' => $isbn
-        ]);
-        */
         $openbdResponse  = Http::get("https://api.openbd.jp/v1/get", [
             'isbn' => $isbn
         ]);
         // 取得したデータを配列に変換
         $openbdData = $openbdResponse ->json();
-
         // 画像URLがあれば取得
-        if (!empty($openbdData[0]) && isset($openbdData[0]['summary']['cover'])) {
+        if (!empty($openbdData[0]) && $openbdData[0]['summary']['cover']) {
             return $openbdData[0]['summary']['cover'];
         }
 
