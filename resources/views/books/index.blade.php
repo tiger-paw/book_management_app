@@ -21,10 +21,13 @@
                 <td>{{ $book->author }}</td>
             </tr>
             @endforeach
-        @endif
-    </table>
-    <!-- ページネーションリンク -->
-    <div class="d-flex justify-content-center">
-    {{ $books->links('pagination::simple-bootstrap-5') }}
-    </div>
+        </ul>
+        <!-- ページネーションリンク -->
+        {{ $books->links() }}
+
+        {{-- bootstrapページネート無効化 --}}
+        {{-- <div class="d-flex justify-content-center">
+            {{ $books->links('pagination::simple-bootstrap-5') }}
+        </div> --}}
+    @endif
 @endsection

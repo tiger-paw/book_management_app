@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>書籍管理メニュー</title>
-</head>
-<body>
-    <h1>書籍管理メニュー</h1>
-    <p>行いたい作業を選択してください</p>
-    <ul>
-        <li><a href="/db/book_management_create">書籍登録</a></li>
-        <li><a href="/db/book_management_erase">書籍削除</a></li>
-        <a href="/">メニューに戻る</a>
+
+@extends('layouts.app')
+@section('title', '書籍管理')
+@section('content')
+<h1>書籍管理画面</h1>
+    <p>行いたい処理を選択してください</p>
+    <nav aria-label="breadcrumb">
+    <ul class="breadcrumb">
+        <a href="/db/book_management_create" class="btn btn-outline-primary btn-lg mx-2">書籍登録</a>
+        <a href="/db/book_management_erase" class="btn btn-outline-primary btn-lg mx-2">書籍削除</a>
     </ul>
-</body>
-</html>
+    <div class="d-flex justify-content-end">
+        <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
+    </div>
+@endsection

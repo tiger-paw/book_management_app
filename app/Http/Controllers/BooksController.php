@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 class BooksController extends Controller
 {
 
-// 「書籍管理」
+    // 「書籍管理」
 
     //書籍新規登録
     public function create()
@@ -39,29 +39,31 @@ class BooksController extends Controller
 
 
     //書籍削除
-    public function erase(Request $req){
-        if($req ->isMethod('get')){
+    public function erase(Request $req)
+    {
+        if ($req->isMethod('get')) {
             return view('db.book_management_erase');
-        }elseif($req ->isMethod('post')){
-            $b_id= $req -> b_id;
-            $data=[
+        } elseif ($req->isMethod('post')) {
+            $b_id = $req->b_id;
+            $data = [
                 'record' => Book::find($b_id)
             ];
-            return view('db.book_management_erase',$data);
-        }else{
+            return view('db.book_management_erase', $data);
+        } else {
             redirect('db.book_management_erase');
         }
     }
 
-    public function delete(Request $req){
-        $books = Book::find($req ->b_id);
-        $books -> delete();
-        $data=[
-            'b_id' => $req -> b_id,
-            'b_title' => $req -> b_title,
-            'b_author' => $req -> b_author
+    public function delete(Request $req)
+    {
+        $books = Book::find($req->b_id);
+        $books->delete();
+        $data = [
+            'b_id' => $req->b_id,
+            'b_title' => $req->b_title,
+            'b_author' => $req->b_author
         ];
-        return view('db.book_management_delete',$data);
+        return view('db.book_management_delete', $data);
     }
 
     public function delete_index()
@@ -69,7 +71,7 @@ class BooksController extends Controller
         $data = [
             'records' => Book::all()
         ];
-        return view('db.book_management_delete_index', $data);
+        return view('db.book_management_index', $data);
     }
 
     // ISBNから表紙画像を取得
@@ -120,7 +122,7 @@ class BooksController extends Controller
         $book = Book::findOrFail($b_id); // IDで書籍を取得、見つからなければ404エラー
         $image_url = $this->getBookCover($book->ISBN); // OpenBD API から表紙画像を取得
         $reviews = Review::where('b_id', $b_id)->get(); // レビュー情報を取得
-        return view('books.show', compact('book','reviews','image_url')); // 詳細ビューに渡す
+        return view('books.show', compact('book', 'reviews', 'image_url')); // 詳細ビューに渡す
     }
 
 
@@ -130,13 +132,23 @@ class BooksController extends Controller
         // $book_keyword = $req->get();
         $book_keyword = $req->book_keyword;
 
+        // $prepareRecords = Book::where('title', 'LIKE', "%$book_keyword%")->orWhere('author', 'LIKE', "%$book_keyword%");
+        // $records = $prepareRecords->paginate(10);
+
         $records = Book::where('title', 'LIKE', "%$book_keyword%")->orWhere('author', 'LIKE', "%$book_keyword%")->paginate(10);
 
-        $data = [
-            'book_keyword' => $book_keyword,
-            'records' => $records,
-            'count' => $records->count(),
-        ];
+        $count = Book::where('title', 'LIKE', "%$book_keyword%")->orWhere('author', 'LIKE', "%$book_keyword%")->count();
+
+        $records->appends(['book_keyword' => $book_keyword]);
+
+        $count =
+
+            $data = [
+                'book_keyword' => $book_keyword,
+                'records' => $records,
+                'count' => $count,
+                // 'count' => $prepareRecords->count(),
+            ];
 
         return view('search.search_books_result', $data);
     }

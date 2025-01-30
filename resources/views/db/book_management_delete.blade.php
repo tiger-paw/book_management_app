@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>書籍削除完了画面</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('title', '書籍管理')
+@section('content')
+<br>
+<div class="d-flex justify-content-end">
+    <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
+</div>
+<br>
     <h1>以下の書籍を削除しました</h1>
     <table class="table">
         <tr><th>書籍名</th><th>著者名</th></tr>
@@ -15,6 +15,5 @@
         </tr>
     </table>
     <br>
-    <a href="{{ route('book_management.index') }}">書籍管理画面に戻る</a>
-</body>
-</html>
+    <a href="{{ route('book_management.index') }}" class="btn btn-secondary">書籍管理画面に戻る</a>
+@endsection
