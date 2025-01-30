@@ -31,8 +31,8 @@
         </div>
         <br>
         <p>上記の書籍を登録しますか?</p>
-        <input type="submit" value="登録" class="btn btn-primary">
-        <a href="{{ route('book_management.index') }}" class="btn btn-secondary">戻る</a>
+        <input type="submit" value="登録" class="btn btn-primary mx-2">
+        <a href="{{ route('book_management.index') }}" class="btn btn-secondary mx-2">戻る</a>
     </form>
     @if ($errors->any())
         <ul>

@@ -36,9 +36,13 @@ class User extends Authenticatable
         'user_code', // 社員コード（必須）
         'remember_token',          // 予備（NULL許容）
     ];
-                //リレーションシップの作成
+    //リレーションシップの作成
     public function department(){
         return $this->belongsTo(Department::class);
+    }
+
+    public function review(){
+        return $this->hasMany(Review::class, 'u_id', 'u_id');
     }
 
     /**

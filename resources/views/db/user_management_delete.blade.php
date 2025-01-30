@@ -6,7 +6,7 @@
 </div>
 <br>
 <h1>以下のデータを削除しました</h1>
-    <table class="table">
+    <table class="table text-center table-striped table-secondary">
         <tr>
             <th>社員番号</th>
             <th>社員名</th>
@@ -15,7 +15,7 @@
 
         </tr>
         <tr>
-            <td>{{ $u_id }}</td> 
+            <td>{{ $u_id }}</td>
             <td>{{ $u_name }}</td>
             <td>{{ $d_id }}</td>
             <td>{{ $user_code }}</td>

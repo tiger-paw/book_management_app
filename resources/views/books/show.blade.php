@@ -8,7 +8,7 @@
     </div>
     <h1>{{ $book->title }} の書籍詳細</h1>
     <p><strong>著者：</strong> {{ $book->author }}</p>
-    <div style="word-wrap: break-word; white-space: pre-wrap;">
+    <div style="word-wrap: break-word;">
         <p><strong>説明：</strong> {{ $book->description }}</p>
     </div>
     <p><strong>出版日：</strong> {{ $book->published_date }}</p>
@@ -31,8 +31,18 @@
             @foreach($reviews as $review)
                 <div class="border p-3 mb-3 rounded">
                     <p>投稿者名： {{ $review->user->u_name }}</p>
-                    <p>評価: {{ $review->rating }} / 5</p>
-                    <div style="word-wrap: break-word; white-space: pre-wrap;">
+                    <p>
+                        評価: {{ $review->rating }} / 5
+                        <span style="margin-left: 1rem; color: goldenrod;">
+                            @for($i = 0; $i < $review->rating; ++$i)
+                            ★
+                            @endfor
+                            @for($i = 0; $i < (5 - $review->rating); ++$i)
+                            ☆
+                            @endfor
+                        </span>
+                    </p>
+                    <div style="word-wrap: break-word;">
                         <p>コメント: {{ $review->comment }}</p>
                     </div>
                     <!-- 投稿者のみに表示 -->

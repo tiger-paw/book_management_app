@@ -28,10 +28,10 @@
         <br>
         <form action="/db/book_management_erase" method="post">
             @csrf
-            書籍番号：<input type="number" name="b_id" class="form-control" required>
-            <input type="submit" value="確認" class="btn btn-primary">
+            書籍番号：<input type="number" name="b_id" class="form-control" style="border: 1px solid #909ca8; width: 60%" required>
+            <br>
+            <input type="submit" value="確認" class="btn btn-primary mx-2">
+            <a href="{{ route('book_management.index') }}" class="btn btn-secondary mx-2">戻る</a>
         </form>
-        <br>
-        <a href="{{ route('book_management.index') }}" class="btn btn-secondary">戻る</a>
     @endif
 @endsection

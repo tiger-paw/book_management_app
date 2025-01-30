@@ -11,7 +11,7 @@
     <div class="border p-3 mb-3 rounded">
         <p>書籍名：<br>{{ $book->title }}</p>
         <p>評価：<br>{{ $data['rating'] }}</p>
-        <div style="word-wrap: break-word; white-space: pre-wrap;">レビュー内容：<br>{{ $data['comment'] }}</div>
+        <div style="word-wrap: break-word;">レビュー内容：<br>{{ $data['comment'] }}</div>
     </div>
     <form action="{{ route('reviews.store', $book->b_id) }}" method="POST">
         @csrf
