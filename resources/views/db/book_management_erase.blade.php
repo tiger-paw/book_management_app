@@ -16,7 +16,7 @@
             <p>
             <p>書籍名：<input type="text" name="b_title" value="{{ $record->title }}" readonly></p>
             <p>著者名：<input type="text" name="b_author" value="{{ $record->author }}" readonly></p>
-            <input type="submit" value="削除" class="btn btn-primary">
+            <input type="submit" value="削除" class="btn btn-danger">
 
             <a href="/db/book_management_erase" class="btn btn-secondary">戻る</a>
         </form>
