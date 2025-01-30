@@ -40,6 +40,7 @@ class UsersController extends Controller
 
         $users->save();
         $data = [
+            'u_id' => $users->u_id,
             'u_name' =>  $req->u_name,
             'password' => $req->password,
             'd_id' => $req->d_id,

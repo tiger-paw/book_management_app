@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -21,16 +22,28 @@ class AuthController extends Controller
         $password = $req->password; // パスワードの取得
         $userRecord = User::find($userId); // ユーザーIDに一致するレコード
 
-        // 認証失敗時の処理
-        if (!$userRecord || $userRecord->password !== $req->password) {
-            $data = [
-                'error_message' => 'ユーザーIDまたはパスワードが間違っています',
-                'userId' => $userId,
-                'password' => $password,
-            ];
+        // Hash()を使ったパスワードの照合
+        if (!$userRecord || !Hash::check($req->password, $userRecord->password)) {
+            return view('login_form', ['message' => 'ユーザーIDまたはパスワードが間違っています']);
+        } else {
+            $req->session()->put('userId', $userId); // ユーザーIDをセッションに保存
+            $req->session()->put('userName', $userRecord->u_name); // ユーザー名をセッションに保存
+            $req->session()->put('userCode', $userRecord->user_code); // ユーザーコードをセッションに保存
+            $req->session()->put('isAdmin', $userRecord->user_code === 'admin'); // 総務であるかを確認する真偽値
 
-            return view('login_form', $data);
+            return redirect('/');
         }
+
+        // 認証失敗時の処理
+        // if (!$userRecord || $userRecord->password !== $req->password) {
+        //     $data = [
+        //         'error_message' => 'ユーザーIDまたはパスワードが間違っています',
+        //         'userId' => $userId,
+        //         'password' => $password,
+        //     ];
+
+        //     return view('login_form', $data);
+        // }
 
         $correctId = User::find($userId)->u_id; // 正しいu_id
         $correctPass = User::find($userId)->password; // 正しいパスワード
