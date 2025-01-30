@@ -13,10 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // 追加
+        // 以下の実行コマンド: php artisan db:seed
         $this->call([
             DepartmentsTableSeeder::class,
-            UsersTableSeeder::class,
+            // UsersTableSeeder::class,
+            HashedPasswordsUsersTableSeeder::class, // Usersと差替
             BooksTableSeeder::class,
             ReviewsTableSeeder::class,
         ]);
