@@ -7,7 +7,7 @@
     </div>
     <br>
     <h1>以下の書籍を削除しました</h1>
-    <table class="table text-center">
+    <table class="table text-center table-striped table-secondary">
         <tr>
             <th>書籍名</th>
             <th>著者名</th>

@@ -7,7 +7,7 @@
     <br>
     <h1>検索結果 - {{ $count }}件</h1>
     <p>キーワード[{{ $book_keyword }}]</p>
-    <table class="table text-center">
+    <table class="table text-center table-striped table-secondary">
         <tr>
             <th>書籍</th>
             <th>著者名</th>

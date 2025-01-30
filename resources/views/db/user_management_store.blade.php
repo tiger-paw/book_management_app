@@ -7,7 +7,7 @@
 <br>
 <body>
     <h1>以下のデータを登録しました</h1>
-    <table class="table text-center">
+    <table class="table text-center table-striped table-secondary">
         <tr>
             <th>社員番号</th>
             <th>社員名</th>

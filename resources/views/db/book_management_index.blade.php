@@ -8,7 +8,7 @@
 </div>
     <h1>書籍表示</h1>
     <br>
-    <table class="table text-center">
+    <table class="table text-center table-striped table-secondary">
         <tr>
             <th>書籍番号</th>
             <th>書籍名</th>
