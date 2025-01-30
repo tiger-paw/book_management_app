@@ -17,7 +17,7 @@
             <p> 社員コード：<input type="text" name="user_code" value="{{ $record ->user_code }}" readonly></p>
             <br>
             <input type="submit" value="削除" class="btn btn-danger mx-2">
-            <a href="/db/user_management_erase" class="btn btn-secondary mx-2">キャンセル</a>
+            <a href="/db/user_management_erase" class="btn btn-secondary mx-2">戻る</a>
             <a href="{{ route('user_management.index') }}" class="btn btn-primary mx-2">社員管理画面に戻る</a>
 
         </form>
@@ -27,7 +27,14 @@
         社員番号：<input type="number" name="u_id" required><br>
         <br>
             <input type="submit" value="確認" class="btn btn-primary mx-2">
-            <a href="{{ route('user_management.index') }}" class="btn btn-secondary mx-2">キャンセル</a>
+            <a href="{{ route('user_management.index') }}" class="btn btn-secondary mx-2">戻る</a>
+        </form>
+        @else
+            <form action="/db/user_management_erase" method="post">
+                @csrf
+                社員番号：<input type="number" name="u_id" required><br>
+                <input type="submit" value="確認" class="btn btn-primary mx-2">
+                <a href="{{ route('user_management.index') }}" class="btn btn-secondary mx-2">戻る</a>
 
         </form>
     @endif
