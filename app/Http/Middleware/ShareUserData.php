@@ -15,19 +15,11 @@ class ShareUserData
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // if (empty($request->session()->get('userId'))) {
-        //     return redirect('/login');
-        // }
-        // デバッグ用
-        // dd($request->all()); // 確認成功："redirect_disabled" => "1" と表示される
 
         // リダイレクトの有効/無効を切り替える
         if ($request->has('redirect_disabled')) {
             $redirectDisabled = $request->input('redirect_disabled') == '1';
             $request->session()->put('redirect_disabled', $redirectDisabled);
-            // デバッグ用
-            // dd($request->all()); // 確認成功："redirect_disabled" => "1" と表示される
-            // dd($request->session()->all()); // 確認成功："redirect_disabled" => true と表示される
         }
 
         // トグルスイッチの状態を確認
@@ -39,7 +31,9 @@ class ShareUserData
 
         // 強制リダイレクトが無効化されておらず、かつ、ログインしていない(=userIdを保持していない)、かつ、ログインページへのリクエストではない場合はログインページへリダイレクト
         if (!$redirectDisabled && !$request->session()->has('userId') && !$this->isLoginRequest($request)) {
-            return redirect('/login');
+            // return redirect('/login');
+            return redirect('/login')->with('message', 'ログインしてください');
+
         }
 
         // セッションからデータを取得

@@ -24,7 +24,6 @@
             <td>{{ $record->u_name }}</td>
             <td>{{ $record->d_id }}</td>
             <td>{{ $record->user_code }}</td>
-            <td><input type="submit" value="削除"></td>
         </tr>
         @endforeach
     </table>
