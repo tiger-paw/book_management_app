@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>書籍一覧</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('title', '書籍一覧')
+@section('content')
+    <!-- 戻るリンク -->
+    <div class="d-flex justify-content-end">
+        <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
+    </div>
     <h1>書籍一覧</h1>
     @if($books->isEmpty()) <!-- 書籍がなければ -->
         <p>書籍はありません。</p>
@@ -14,13 +13,13 @@
             @foreach($books as $book)
                 <li>
                     <!-- 書籍名をクリックすると詳細ページに遷移 -->
-                    <a href={{ route('books.show', $book->b_id) }}>{{ $book->title }}</a> - {{ $book->author }}
+                    <p>書籍名：<a href="{{ route('books.show', ['id' => $book->b_id]) }}">{{ $book->title }}</a> - 著者名：{{ $book->author }}</p>
                 </li>
             @endforeach
         </ul>
+        <!-- ページネーションリンク -->
+        <div class="d-flex justify-content-center">
+            {{ $books->links('pagination::simple-bootstrap-5') }}
+        </div>
     @endif
-    <!-- 戻るリンク -->
-    <a href="{{ route('index') }}">メニューに戻る</a>
-    <!-- リモートリポジトリにプッシュができていなかったのでコメント -->
-</body>
-</html>
+@endsection

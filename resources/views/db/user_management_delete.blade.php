@@ -20,15 +20,15 @@
         </tr>
         <tr>
             <td>{{ $u_id }}</td> 
-            <td>{{ $user_name }}</td>
+            <td>{{ $u_name }}</td>
             <td>{{ $d_id }}</td>
             <td>{{ $user_code }}</td>
         </tr>
     </table>
     <br>
-    <a href="/">社員管理画面に戻る</a>
-
-</body>
-</html>
+    <a href="{{ route('user_management.index') }}">社員管理画面に戻る</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
+    crossorigin="anonymous"></script>
 </body>
 </html>
