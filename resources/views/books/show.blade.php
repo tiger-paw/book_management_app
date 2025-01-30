@@ -31,7 +31,17 @@
             @foreach($reviews as $review)
                 <div class="border p-3 mb-3 rounded">
                     <p>投稿者名： {{ $review->user->u_name }}</p>
-                    <p>評価: {{ $review->rating }} / 5</p>
+                    <p>
+                        評価: {{ $review->rating }} / 5
+                        <span style="margin-left: 1rem; color: goldenrod;">
+                            @for($i = 0; $i < $review->rating; ++$i)
+                            ★
+                            @endfor
+                            @for($i = 0; $i < (5 - $review->rating); ++$i)
+                            ☆
+                            @endfor
+                        </span>
+                    </p>
                     <div style="word-wrap: break-word; white-space: pre-wrap;">
                         <p>コメント: {{ $review->comment }}</p>
                     </div>
