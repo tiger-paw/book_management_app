@@ -11,6 +11,7 @@
     <ul>
         <li><a href="/db/book_management_create">書籍登録</a></li>
         <li><a href="/db/book_management_erase">書籍削除</a></li>
+        <a href="/">メニューに戻る</a>
     </ul>
 </body>
 </html>

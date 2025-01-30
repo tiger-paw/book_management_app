@@ -4,27 +4,30 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AuthController; // ログイン認証用に新たに追加で作成したコントローラ
+use App\Http\Controllers\ToggleRedirectController; // 開発者向け機能用に追加たコントローラ
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ReviewsController;
 
 // メニュー画面を表示
 // 「社員管理」
 
-Route::get('/user_management',function(){
+//社員管理画面ホーム
+Route::get('/user_management', function () {
     return view('user_management_index');
 })->name('user_management.index');
 
+//社員一覧表示
+Route::get('/db/user_management_index', [UsersController::class, 'index']);
 
-Route::get('/db/user_management_index',[UsersController::class,'index']);
+//社員新規登録
+Route::get('/db/user_management_create', [UsersController::class, 'create']);
+Route::post('/db/user_management_store', [UsersController::class, 'store']);
 
-Route::get('/db/user_management_create',[UsersController::class,'create']);
-Route::post('/db/user_management_store',[UsersController::class,'store']);
+//社員削除
+Route::get('/db/user_management_erase', [UsersController::class, 'erase']);
+Route::post('/db/user_management_erase', [UsersController::class, 'erase']);
+Route::post('/db/user_management_delete', [UsersController::class, 'delete']);
 
-Route::get('/db/user_management_erase',[UsersController::class,'erase']);
-Route::post('/db/user_management_erase',[UsersController::class,'erase']);
-Route::post('/db/user_management_delete',[UsersController::class,'delete']);
-
-// 「書籍管理」
 
 // -----------------------------------------------
 
@@ -34,13 +37,13 @@ Route::get('/', function () {
 })->name('index');
 
 // メニュー画面
-Route::get('/',[TopController::class,'index'])->name('index');
+Route::get('/', [TopController::class, 'index'])->name('index');
 
 // 書籍の一覧
-Route::get('/books',[BooksController::class,'index'])->name('books.index');
+Route::get('/books', [BooksController::class, 'index'])->name('books.index');
 
 // 書籍の詳細
-Route::get('/books/{id}',[BooksController::class,'show'])->name('books.show');
+Route::get('/books/{id}', [BooksController::class, 'show'])->name('books.show');
 
 // 書籍詳細にレビュー一覧を表示
 Route::get('/books/{bookId}/reviews', [ReviewsController::class, 'index'])->name('reviews.show');
@@ -66,23 +69,40 @@ Route::get('/books/{bookId}/reviews/delete', [ReviewsController::class, 'delete'
 
 // -----------------------------------------------
 
-// loginフォームページへ遷移する
-Route::get('/login', function() {
-    return view('loginForm');
-});
-
 // -----------------------------------------------
 // 「書籍管理」
 Route::get('/book_management_index', function () {
     return view('book_management_index');
+})->name('book_management.index');
+
+Route::get('db/book_management_create', [BooksController::class, 'create']);
+Route::post('db/book_management_store', [BooksController::class, 'store']);
+
+Route::get('db/book_management_erase', [BooksController::class, 'erase']);
+Route::post('/db/book_management_erase', [BooksController::class, 'erase']);
+Route::post('/db/book_management_delete', [BooksController::class, 'delete']);
+Route::get('/db/book_management_delete_index', [BooksController::class, 'delete_index']);
+
+
+// -----------------------------------------
+// loginフォームページへ遷移する
+Route::get('/login', function () {
+    return view('login_form');
 });
-
-Route::get('db/book_management_create',[BooksController::class,'create']);
-Route::post('db/book_management_store',[BooksController::class,'store']);
-
-Route::get('db/book_management_erase',[BooksController::class,'erase']);
-
 // loginフォームからPOST
 Route::post('/login', [AuthController::class, 'login']);
 
+// ログアウト
+Route::post('/logout', [AuthController::class, 'logout']);
 
+
+// 強制リダイレクトを無効化（開発者向け設定）
+Route::post('/toggle-redirect', [ToggleRedirectController::class, 'toggle']);
+
+// -----------------------------------------------
+// 「書籍検索」
+Route::get('/search_books_form', function () {
+    return view('search.search_books_form');
+});
+// 書籍検索
+Route::get('/search_books_result', [BooksController::class, 'search']);

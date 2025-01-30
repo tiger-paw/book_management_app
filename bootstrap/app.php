@@ -11,7 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // セッションミドルウェアを有効化
+        $middleware->append(\Illuminate\Session\Middleware\StartSession::class);
+        // ログインセッションを保持するためにグローバルなミドルウェアを追加
+        $middleware->append(App\Http\Middleware\ShareUserData::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

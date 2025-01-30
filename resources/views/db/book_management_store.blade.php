@@ -20,6 +20,6 @@
         </tr>
     </table>
     <br>
-    <a href="/">メニューに戻る</a>
+    <a href="/">書籍登録メニューに戻る</a>
 </body>
 </html>
