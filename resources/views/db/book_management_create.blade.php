@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 @section('title', '書籍管理')
 @section('content')
@@ -9,7 +8,7 @@
     <h1>書籍の新規登録</h1>
     <br>
     <form action="/db/book_management_store" method="post">
-        @csrf 
+        @csrf
         <div class="mb-3">
             <label for="book_name" ckass="form-label">書籍名：</label>
             <input type="text" class="orm-control" name="book_name" id="book_name" required>
@@ -25,13 +24,13 @@
         <br>
         <p>上記の書籍を登録しますか?</p>
         <input type="submit" value="登録" class="btn btn-primary">
-        <a href="{{ route('book_management.index') }}" class="btn btn-secondary">キャンセル</a>
-    </form>  
-    @if($errors->any())
+        <a href="{{ route('book_management.index') }}" class="btn btn-secondary">戻る</a>
+    </form>
+    @if ($errors->any())
         <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
             @endforeach
         </ul>
-    @endif    
+    @endif
 @endsection
