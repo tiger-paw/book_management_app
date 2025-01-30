@@ -11,11 +11,10 @@
     <p><strong>説明：</strong> {{ $book->description }}</p>
     <p><strong>出版日：</strong> {{ $book->published_date }}</p>
     <p><strong>ISBN：</strong> {{ $book->ISBN }}</p>
-    <p><strong>画像URL：</strong> <img src="{{ $book->image_url }}" alt="{{ $book->title }}"></p>
     @if($image_url)
         <img src="{{ $image_url }}" alt="{{ $book->title }}の表紙" class="img-fluid">
     @else
-        <p>画像がありません。</p>
+        <p>"{{ $book->title }}"の表紙画像はありません。</p>
     @endif
     <!-- レビューの新規投稿フォーム -->
     <a href="{{ route('reviews.create', $book->b_id) }}" class="btn btn-primary">レビューを投稿する</a>
