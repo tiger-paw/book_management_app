@@ -27,12 +27,7 @@
             <textarea class="form-control" name="detail_item" id="detail_item" required></textarea>
         </div>
         <input type="submit" value="確認" class="btn btn-primary">
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
-    crossorigin="anonymous"></scrip>   
-    <form action="/db/book_cancel" method="get"> 
-        <input type="submit" value="キャンセル" class="btn btn-primary">  
-    </form>
-</body>
+    </form>  
+    <a href="/">書籍登録メニューに戻る</a>
+    </body>
 </html>

@@ -10,10 +10,28 @@ class AuthController extends Controller
     //
     public function login(Request $req)
     {
+        // バリデーション
+        $inputs = $req->validate([
+            'u_id' => 'required',
+            'password' => 'required',
+        ]);
+
+        // データ取得
         $userId = (int) $req->u_id; // ユーザ名の取得
         $password = $req->password; // パスワードの取得
-
         $userRecord = User::find($userId); // ユーザーIDに一致するレコード
+
+        // 認証失敗時の処理
+        if (!$userRecord || $userRecord->password !== $req->password) {
+            $data = [
+                'error_message' => 'ユーザーIDまたはパスワードが間違っています',
+                'userId' => $userId,
+                'password' => $password,
+            ];
+
+            return view('login_form', $data);
+        }
+
         $correctId = User::find($userId)->u_id; // 正しいu_id
         $correctPass = User::find($userId)->password; // 正しいパスワード
 
@@ -35,17 +53,16 @@ class AuthController extends Controller
             $req->session()->put('userCode', $userCode); // ユーザーコードをセッションに保存
             $req->session()->put('isAdmin', $isAdmin);
 
-            // return redirect('/')->with([
-            //     'userRecord' => $userRecord,
-            //     'userId' => $userId,
-            //     'userName' => $userName,
-            //     'userCode' => $userCode,
-            //     'isAdmin' => $isAdmin,
-            // ]);
-
             return redirect('/');
         } else {
-            return view('login_form');
+            return view('login_form', ['message' => 'ユーザーIDまたはパスワードが間違っています']);
         }
+    }
+
+    public function logout(Request $req)
+    {
+        $req->session()->flush();
+
+        return redirect('/login');
     }
 }

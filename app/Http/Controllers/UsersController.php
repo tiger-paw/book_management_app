@@ -12,6 +12,7 @@ class UsersController extends Controller
     public function user_management_index(){
         return view('index');
     }
+    //社員情報の一覧表示
     public function index(){
         $data = [
             'records' => User::All()
@@ -20,10 +21,12 @@ class UsersController extends Controller
         return view('db.user_management_index',$data);
 
     }
+    //社員情報の登録
     public function create(){
         return view('db.user_management_create');
     }
-    
+
+    //登録画面の表示
     public function store(Request $req){
 
         $users= new User();
@@ -41,6 +44,7 @@ class UsersController extends Controller
         ];
         return view('db.user_management_store',$data);
     }
+    //社員の削除情報の入力・入力後の確認
     public function erase(Request $req){
         if($req ->isMethod('get')){
             return view('db.user_management_erase');
@@ -54,6 +58,8 @@ class UsersController extends Controller
             redirect('db.user_management_erase');
         }
     }
+           //社員の削除完了の画面
+
     public function delete(Request $req){
         $users = User::find($req ->u_id);
         $users -> delete();

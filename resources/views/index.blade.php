@@ -1,30 +1,21 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>メニュー画面</title>
-</head>
-<body>
-    <h1>メニュー</h1>
-    @if(isset($userRecord))
-        <div>
-            ID:{{ $userId }}
-            名前:{{ $userName }}
-            コード:{{ $userCode }}
-        </div>
-    @endif
-    <ul>
+@extends('layouts.app')
+@section('title', 'menu')
+@section('content')
+    {{-- Menuタイトル部分 --}}
+    <div class="text-center mb-4">
+        <h1>Menu</h1>
+    </div>
 
-    @if($isAdmin)
-        <li><a href="{{ route('books.index') }}">書籍一覧</a></li>
-        <li><a href="/search_books_form">書籍検索</a></li>
-        <li><a href="{{ route('user_management.index') }}">社員管理</li>
-        <li><a href="{{ route('book_management.index') }}">書籍管理</a></li>
-    @else
-        <li><a href="{{ route('books.index') }}">書籍一覧</a></li>
-        <li><a href="/search_books_form">書籍検索</a></li>
-    @endif
-    </ul>
-</body>
-</html>
+    {{-- リンクメニュー部分 --}}
+    <div class="d-flex justify-content-center">
+        @if ($isAdmin)
+            <a href="{{ route('books.index') }}" class="btn btn-secondary mx-2">書籍一覧</a>
+            <a href="/search_books_form" class="btn btn-secondary mx-2">書籍検索</a>
+            <a href="{{ route('user_management.index') }}" class="btn btn-secondary mx-2">社員管理</a>
+            <a href="{{ route('book_management.index') }}" class="btn btn-secondary mx-2">書籍管理</a>
+        @else
+            <a href="{{ route('books.index') }}" class="btn btn-secondary mx-2">書籍一覧</a>
+            <a href="/search_books_form" class="btn btn-secondary mx-2">書籍検索</a>
+        @endif
+    </div>
+@endsection
