@@ -14,8 +14,10 @@
     @if($image_url)
         <img src="{{ $image_url }}" alt="{{ $book->title }}の表紙" class="img-fluid">
     @else
-        <p>"{{ $book->title }}"の表紙画像はありません。</p>
+        <p>"{{ $book->title }}"の表紙画像は取得できませんでした。</p>
     @endif
+    <br>
+    <br>
     <!-- レビューの新規投稿フォーム -->
     <a href="{{ route('reviews.create', $book->b_id) }}" class="btn btn-primary">レビューを投稿する</a>
     <hr>
