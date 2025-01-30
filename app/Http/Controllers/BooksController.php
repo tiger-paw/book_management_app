@@ -83,7 +83,6 @@ class BooksController extends Controller
             'isbn' => $isbn
         ]);
         */
-        dd($isbn);
         $openbdResponse  = Http::get("https://api.openbd.jp/v1/get", [
             'isbn' => $isbn
         ]);

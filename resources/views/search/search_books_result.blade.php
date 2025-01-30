@@ -1,8 +1,11 @@
 @extends('layouts.app')
 @section('title', '書籍検索結果')
 @section('content')
+    <div class="d-flex justify-content-end gap-2">
+        <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
+        <a href="/search_books_form" class="btn btn-secondary">検索ページに戻る</a>
+    </div>
     <h1>検索結果 - {{ $count }}件</h1>
-    <a href="/search_books_form">検索ページに戻る</a>
     <p>キーワード[{{ $book_keyword }}]</p>
     <table class="table">
         <tr>
@@ -22,6 +25,4 @@
     <hr>
     <!-- {{ $records->links() }} -->
     {{ $records->appends(Request::only('post_keyword'))->links() }}
-
-    <a href="/">Topページに戻る</a>
 @endsection
