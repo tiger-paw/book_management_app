@@ -24,8 +24,8 @@
         <form action="/db/user_management_erase" method="post">
         @csrf  
         社員番号：<input type="number" name="u_id" required><br>
-            <input type="submit" value="確認" class="btn btn-outline-primary"><br>
-            <a href="{{ route('user_management.index') }}" class="btn btn-outline-primary">キャンセル</a>
+            <input type="submit" value="確認" class="btn btn-primary">
+            <a href="{{ route('user_management.index') }}" class="btn btn-secondary">キャンセル</a>
 
         </form>
     @endif
