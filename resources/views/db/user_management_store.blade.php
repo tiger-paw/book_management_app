@@ -9,6 +9,7 @@
     <h1>以下のデータを登録しました</h1>
     <table class="table">
         <tr>
+            <th>社員番号</th>
             <th>社員名</th>
             <th>パスワード</th>
             <th>部門ID</th>
@@ -17,7 +18,8 @@
 
         </tr>
         <tr>
-            <td>{{ $u_name }}</td>           
+            <td>{{ $u_id }}</td>
+            <td>{{ $u_name }}</td>
             <td>{{ $password }}</td>
             <td>{{ $d_id }}</td>
             <td>{{ $user_code }}</td>
