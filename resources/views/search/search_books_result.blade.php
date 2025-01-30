@@ -25,7 +25,7 @@
         </tr>
         @foreach($records as $record)
         <tr>
-            <td>{{ $record->title }}</td>
+            <td><a href="{{ route('books.show', ['id' => $record->b_id]) }}">{{ $record->title }}</a></td>
             <td>{{ $record->author }}</td>
             {{-- <td>{{ $record->published_date }}</td> --}}
         </tr>
