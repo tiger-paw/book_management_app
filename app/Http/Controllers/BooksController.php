@@ -69,7 +69,7 @@ class BooksController extends Controller
         $data = [
             'records' => Book::all()
         ];
-        return view('db.book_management_delete_index', $data);
+        return view('db.book_management_index', $data);
     }
 
     // OpenBD API を使って ISBN から表紙画像を取得

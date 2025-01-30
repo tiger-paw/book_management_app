@@ -1,34 +1,37 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>書籍の削除</title>
-</head>
-<body>
-    <h1>書籍の削除</h1>  
+@extends('layouts.app')
+@section('title', '書籍管理')
+@section('content')
+<div class="d-flex justify-content-end">
+    <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
+</div>
+<br>
     @if(isset($record))
+    <h1>削除する書籍の確認</h1>
+        <br>
+        <p>以下の書籍を削除します</p>
         <form action="/db/book_management_delete" method="post">
             @csrf
-            <input type="hidden" name="b_id" value="{{ $record ->b_id }}" readonly><br>
-            書籍番号{{$record ->b_id}}<br>
-            書籍名<input type="text" name="b_title" value="{{ $record ->title }}" readonly><br>
-            著者名<input type="text" name="b_author" value="{{ $record ->author }}" readonly><br>
-
-            <input type="submit" value="削除"><br>
-            <a href="/book_management_index">書籍削除画面に戻る</a>
+            <input type="hidden" name="b_id" value="{{ $record ->b_id }}" readonly>
+            <p>書籍番号：{{$record ->b_id}}<p>
+            <p>書籍名：<input type="text" name="b_title" value="{{ $record ->title }}" readonly></p>
+            <p>著者名：<input type="text" name="b_author" value="{{ $record ->author }}" readonly></p>
+            <input type="submit" value="削除" class="btn btn-primary">
+            
+            <a href="/db/book_management_erase" class="btn btn-secondary">キャンセル</a>
         </form>
     @else
+    <h1>書籍の削除</h1> 
         <p>書籍一覧から削除したい書籍の番号を選択してください</p>
-        <ul>
-            <li><a href="/db/book_management_delete_index">書籍一覧表示</a></li>
+        <ul class="breadcrumb">
+            <a href="/db/book_management_index" class="btn btn-secondary mx-2">書籍一覧表示</a>
         </ul>
+        <br>
         <form action="/db/book_management_erase" method="post">
-        @csrf  
-        書籍番号<input type="number" name="b_id" required>
-            <input type="submit" value="確認">
+            @csrf  
+            書籍番号：<input type="number" name="b_id" class="orm-control" required>
+            <input type="submit" value="確認" class="btn btn-primary" >
         </form>
-        <a href="/book_management_index">書籍削除画面に戻る</a>
+        <br>
+        <a href="{{ route('book_management.index') }}" class="btn btn-secondary">キャンセル</a>
     @endif
-</body>
-</html>
+@endsection
