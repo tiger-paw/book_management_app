@@ -7,10 +7,11 @@
     <br>
     <h1>以下の書籍を登録しました</h1>
     <table class="table">
-        <tr><th>書籍名</th><th>著者名</th><th>説明</th></tr>
+        <tr><th>書籍名</th><th>著者名</th><th>ISBN</th><th>説明</th></tr>
         <tr>
             <td>{{$book_name}}</td>
             <td>{{$author_name}}</td>
+            <td>{{$isbn}}</td>
             <td>{{$detail_item}}</td>
         </tr>
     </table>
