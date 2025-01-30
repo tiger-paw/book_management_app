@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title', '社員管理')
 @section('content')
-<div class="d-flex justify-content-end">
-    <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
-</div>
-<br>
-<h1>以下のデータを削除しました</h1>
-    <table class="table text-center table-striped table-secondary">
+    <div class="d-flex justify-content-end">
+        <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
+    </div>
+    <br>
+    <h1>以下のデータを削除しました</h1>
+    <table class="table text-center table-striped">
         <tr>
             <th>社員番号</th>
             <th>社員名</th>

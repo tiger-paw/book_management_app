@@ -6,23 +6,30 @@
     </div>
     <br>
     <h1>以下の書籍を登録しました</h1>
-    <table class="table text-center table-striped table-secondary">
-        <tr><th>書籍名</th><th>著者名</th><th>出版日</th><th>ISBN</th></tr>
+    <table class="table text-center table-striped">
         <tr>
-            <td>{{$book_name}}</td>
-            <td>{{$author_name}}</td>
-            <td>{{$published_date}}</td>
-            <td>{{$isbn}}</td>
+            <th>書籍名</th>
+            <th>著者名</th>
+            <th>出版日</th>
+            <th>ISBN</th>
+        </tr>
+        <tr>
+            <td>{{ $book_name }}</td>
+            <td>{{ $author_name }}</td>
+            <td>{{ $published_date }}</td>
+            <td>{{ $isbn }}</td>
         </tr>
         <br><br><br>
     </table>
     <br>
-    <table class="table text-center table-striped table-secondary">
+    <table class="table text-center table-striped">
         <tr>
             <th><strong>説明 (詳細)</strong></th>
         </tr>
         <tr>
-            <td><div style="word-wrap: break-word;">{{$detail_item}}</div></td>
+            <td>
+                <div style="word-wrap: break-word;">{{ $detail_item }}</div>
+            </td>
         </tr>
     </table>
     <br>
