@@ -1,4 +1,17 @@
+<details>
+    <summary>使用したPHP, Laravel, MySQL バージョン確認</summary>
+    
+    $ php -v
+    PHP 8.2.12 (cli) (built: Oct 24 2023 21:15:15) (ZTS Visual C++ 2019 x64)
 
+    $ php artisan --version
+    Laravel Framework 11.39.1
+    
+    $ mysql --version
+    Ver 15.1 Distrib 10.4.32-MariaDB, for Win64 (AMD64)
+
+
+</details>
 ## アプリ準備に必要な手順は以下のコマンドを参考にしてください
 <details>
 <summary>コマンド</summary>

@@ -18,8 +18,11 @@
             @endforeach
         </ul>
         <!-- ページネーションリンク -->
-        <div class="d-flex justify-content-center">
+        {{ $books->links() }}
+
+        {{-- bootstrapページネート無効化 --}}
+        {{-- <div class="d-flex justify-content-center">
             {{ $books->links('pagination::simple-bootstrap-5') }}
-        </div>
+        </div> --}}
     @endif
 @endsection
