@@ -4,6 +4,7 @@
 <div class="d-flex justify-content-end">
     <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
 </div>
+<div class="d-flex justify-content-center">
     <h1>社員表示</h1>
     <table class="table">
         <tr>
@@ -22,4 +23,7 @@
         @endforeach
     </table>
     <a href="{{ route('user_management.index') }}" class="btn btn-outline-primary">社員管理画面に戻る</a>
+    {{ $records->links() }}
+</div>
+    <a href="{{ route('user_management.index') }}" class="btn btn-secondary">社員管理画面に戻る</a>
 @endsection
