@@ -39,7 +39,7 @@
     </nav>
 
     <div class="container d-flex justify-content-center align-items-center">
-        <div>
+        <div style="max-width: 80%;" class="my-4">
             @yield('content')
         </div>
     </div>

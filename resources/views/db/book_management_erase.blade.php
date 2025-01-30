@@ -16,7 +16,7 @@
             <p>書籍名：<input type="text" name="b_title" value="{{ $record ->title }}" readonly></p>
             <p>著者名：<input type="text" name="b_author" value="{{ $record ->author }}" readonly></p>
             <input type="submit" value="削除" class="btn btn-danger mx-2">
-            
+
             <a href="/db/book_management_erase" class="btn btn-secondary">戻る</a>
         </form>
     @else
@@ -28,7 +28,7 @@
         <br>
         <form action="/db/book_management_erase" method="post">
             @csrf
-            書籍番号：<input type="number" name="b_id" class="orm-control" required>
+            書籍番号：<input type="number" name="b_id" class="form-control" required>
             <input type="submit" value="確認" class="btn btn-primary">
         </form>
         <br>
