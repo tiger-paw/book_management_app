@@ -9,7 +9,7 @@
             <input type="text" name="book_keyword" required>
         </div>
         <div>
-            <input type="submit" value="検索">
+            <input type="submit" value="検索" class="btn btn-primary">
         </div>
     </form>
 </body>
