@@ -1,5 +1,5 @@
 <details>
-    <summary>バージョン確認</summary>
+    <summary>使用したPHP, Laravel, MySQL バージョン確認</summary>
     
     $ php -v
     PHP 8.2.12 (cli) (built: Oct 24 2023 21:15:15) (ZTS Visual C++ 2019 x64)
