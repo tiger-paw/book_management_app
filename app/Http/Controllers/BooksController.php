@@ -74,17 +74,39 @@ class BooksController extends Controller
         return view('db.book_management_index', $data);
     }
 
-    // OpenBD API を使って ISBN から表紙画像を取得
+    // ISBNから表紙画像を取得
     public function getBookCover($isbn)
     {
-        $response = Http::get("https://api.openbd.jp/v1/get", [
+        // OpenBD APIを使用してISBNを検索
+        /*
+        $openbdResponse  = Http::get("https://api.openbd.jp/v1/get", [
             'isbn' => $isbn
         ]);
+        */
+        dd($isbn);
+        $openbdResponse  = Http::get("https://api.openbd.jp/v1/get", [
+            'isbn' => $isbn
+        ]);
+        // 取得したデータを配列に変換
+        $openbdData = $openbdResponse ->json();
 
-        $data = $response->json();
+        // 画像URLがあれば取得
+        if (!empty($openbdData[0]) && isset($openbdData[0]['summary']['cover'])) {
+            return $openbdData[0]['summary']['cover'];
+        }
 
-        // 画像URLがあれば取得、なければ null を返す
-        return $data[0]['summary']['cover'] ?? null;
+        // Google Books APIを使用してISBNを検索
+        $googleResponse  = Http::get('https://www.googleapis.com/books/v1/volumes', [
+            'q' => 'isbn:' . str_replace('-', '', $isbn),
+        ]);
+        // 取得したデータを配列に変換
+        $googleData = $googleResponse ->json();
+        // 画像URLが存在すれば返す
+        if (isset($googleData['items'][0]['volumeInfo']['imageLinks']['thumbnail'])) {
+            return $googleData['items'][0]['volumeInfo']['imageLinks']['thumbnail'];
+        }
+        // 両方で画像が見つからなければnullを返す
+        return null;
     }
 
     // 書籍一覧画面
