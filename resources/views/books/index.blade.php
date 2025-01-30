@@ -6,20 +6,25 @@
         <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
     </div>
     <h1>書籍一覧</h1>
-    @if($books->isEmpty()) <!-- 書籍がなければ -->
-        <p>書籍はありません。</p>
-    @else
-        <ul>
+    <table class="table">
+        @if($books->isEmpty()) <!-- 書籍がなければ -->
+            <p>書籍はありません。</p>
+        @else
+            <tr>
+                <th>書籍名</th>
+                <th>著者名</th>
+            </tr>
             @foreach($books as $book)
-                <li>
-                    <!-- 書籍名をクリックすると詳細ページに遷移 -->
-                    <p>書籍名：<a href="{{ route('books.show', ['id' => $book->b_id]) }}">{{ $book->title }}</a> - 著者名：{{ $book->author }}</p>
-                </li>
+            <tr>
+                <!-- 書籍名をクリックすると詳細ページに遷移 -->
+                <td><a href="{{ route('books.show', ['id' => $book->b_id]) }}">{{ $book->title }}</a></td>
+                <td>{{ $book->author }}</td>
+            </tr>
             @endforeach
-        </ul>
-        <!-- ページネーションリンク -->
-        <div class="d-flex justify-content-center">
-            {{ $books->links('pagination::simple-bootstrap-5') }}
-        </div>
-    @endif
+        @endif
+    </table>
+    <!-- ページネーションリンク -->
+    <div class="d-flex justify-content-center">
+    {{ $books->links('pagination::simple-bootstrap-5') }}
+    </div>
 @endsection
