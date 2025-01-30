@@ -19,7 +19,7 @@
     <br>
     <strong>説明(詳細)</strong>
     <hr>
-    <div style="word-wrap: break-word; white-space: pre-wrap;">{{$detail_item}}</div>
+    <div style="word-wrap: break-word;">{{$detail_item}}</div>
     <hr>
     <br>
     <a href="{{ route('book_management.index') }}" class="btn btn-primary">書籍管理画面に戻る</a>

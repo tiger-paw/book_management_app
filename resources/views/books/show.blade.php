@@ -8,7 +8,7 @@
     </div>
     <h1>{{ $book->title }} の書籍詳細</h1>
     <p><strong>著者：</strong> {{ $book->author }}</p>
-    <div style="word-wrap: break-word; white-space: pre-wrap;">
+    <div style="word-wrap: break-word;">
         <p><strong>説明：</strong> {{ $book->description }}</p>
     </div>
     <p><strong>出版日：</strong> {{ $book->published_date }}</p>
@@ -42,7 +42,7 @@
                             @endfor
                         </span>
                     </p>
-                    <div style="word-wrap: break-word; white-space: pre-wrap;">
+                    <div style="word-wrap: break-word;">
                         <p>コメント: {{ $review->comment }}</p>
                     </div>
                     <!-- 投稿者のみに表示 -->
