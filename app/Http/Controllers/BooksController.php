@@ -27,12 +27,14 @@ class BooksController extends Controller
         $book->title = $req->book_name;
         $book->author = $req->author_name;
         $book->description = $req->detail_item;
+        $book->published_date = $req->published_date;
         $book->ISBN = $req->isbn;
         $book->save();
         $data = [
             'book_name' => $req->book_name,
             'author_name' => $req->author_name,
             'detail_item' => $req->detail_item,
+            'published_date' => $req->published_date,
             'isbn' => $req->isbn,
             'published_date' => $req->published_date
         ];
