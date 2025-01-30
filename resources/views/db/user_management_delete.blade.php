@@ -4,6 +4,7 @@
 <div class="d-flex justify-content-end">
     <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
 </div>
+<br>
 <h1>以下のデータを削除しました</h1>
     <table class="table">
         <tr>

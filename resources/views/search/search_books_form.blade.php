@@ -4,6 +4,7 @@
     <div class="d-flex justify-content-end">
         <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
     </div>
+    <br>
     <h1>書籍検索</h1>
     <p>キーワード（書籍名・著者名）</p>
     <form action="/search_books_result" method="get">

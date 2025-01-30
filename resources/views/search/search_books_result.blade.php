@@ -4,6 +4,7 @@
     <div class="d-flex justify-content-end gap-2">
         <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
     </div>
+    <br>
     <h1>検索結果 - {{ $count }}件</h1>
     <p>キーワード[{{ $book_keyword }}]</p>
     <table class="table">
