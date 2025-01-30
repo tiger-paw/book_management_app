@@ -22,10 +22,7 @@
         </tr>
         @endforeach
     </table>
-    <div class="d-flex justify-content-center">
     <a href="{{ route('user_management.index') }}" class="btn btn-primary">社員管理画面に戻る</a>
-    </div>
-    <div class="d-flex justify-content-center">
     {{ $records->links() }}
     </div>
 </div>
