@@ -22,8 +22,9 @@
         </tr>
         @endforeach
     </table>
-    <a href="{{ route('user_management.index') }}" class="btn btn-primary">社員管理画面に戻る</a>
+    <br>
     {{ $records->links() }}
+    <a href="{{ route('user_management.index') }}" class="btn btn-primary">社員管理画面に戻る</a>
     </div>
 </div>
 @endsection

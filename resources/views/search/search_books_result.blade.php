@@ -5,6 +5,7 @@
         <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
         <a href="/search_books_form" class="btn btn-secondary">検索ページに戻る</a>
     </div>
+    <br>
     <h1>検索結果 - {{ $count }}件</h1>
     <p>キーワード[{{ $book_keyword }}]</p>
     <table class="table">

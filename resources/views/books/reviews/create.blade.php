@@ -6,6 +6,7 @@
         <a href="{{ route('books.index') }}" class="btn btn-secondary">書籍一覧に戻る</a>
         <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
     </div>
+    <br>
     <h1>レビューの新規投稿</h1>
     <form action="{{ route('reviews.create.check', $bookId) }}" method="post">
         @csrf

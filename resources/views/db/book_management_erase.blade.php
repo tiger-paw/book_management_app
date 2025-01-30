@@ -15,7 +15,7 @@
             <p>書籍番号：{{$record ->b_id}}<p>
             <p>書籍名：<input type="text" name="b_title" value="{{ $record ->title }}" readonly></p>
             <p>著者名：<input type="text" name="b_author" value="{{ $record ->author }}" readonly></p>
-            <input type="submit" value="削除" class="btn btn-primary">
+            <input type="submit" value="削除" class="btn btn-danger mx-2">
             
             <a href="/db/book_management_erase" class="btn btn-secondary">キャンセル</a>
         </form>
@@ -23,7 +23,7 @@
     <h1>書籍の削除</h1> 
         <p>書籍一覧から削除したい書籍の番号を選択してください</p>
         <ul class="breadcrumb">
-            <a href="/db/book_management_index" class="btn btn-secondary mx-2">書籍一覧表示</a>
+            <a href="/db/book_management_index" class="btn btn-outline-primary btn-lg mx-2">書籍一覧表示</a>
         </ul>
         <br>
         <form action="/db/book_management_erase" method="post">

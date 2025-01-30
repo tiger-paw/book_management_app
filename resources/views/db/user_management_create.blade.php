@@ -4,6 +4,7 @@
 <div class="d-flex justify-content-end">
     <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
 </div>
+<br>
 <h1>社員の新規登録</h1>
 
     <form action="/db/user_management_store" method="post">
