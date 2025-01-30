@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1>書籍の新規登録</h1>
-    <form action="/db/book_store" method="post">
+    <form action="/db/book_management_store" method="post">
         @csrf 
         <div class="mb-3">
             <label for="book_name" ckass="form-label">書籍名</label>
