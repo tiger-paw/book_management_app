@@ -67,7 +67,7 @@ class BooksController extends Controller
     public function delete_index()
     {
         $data = [
-            'records' => Book::all()
+            'records' => Book::paginate(10)
         ];
         return view('db.book_management_index', $data);
     }

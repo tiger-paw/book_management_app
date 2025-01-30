@@ -15,5 +15,5 @@
         </tr>
     </table>
     <br>
-    <a href="{{ route('book_management.index') }}"　class="btn btn-secondary">書籍管理画面に戻る</a>
+    <a href="{{ route('book_management.index') }}" class="btn btn-secondary">書籍管理画面に戻る</a>
 @endsection
