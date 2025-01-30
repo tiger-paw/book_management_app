@@ -145,14 +145,12 @@ class BooksController extends Controller
 
         $records->appends(['book_keyword' => $book_keyword]);
 
-        $count =
-
-            $data = [
-                'book_keyword' => $book_keyword,
-                'records' => $records,
-                'count' => $count,
-                // 'count' => $prepareRecords->count(),
-            ];
+        $data = [
+            'book_keyword' => $book_keyword,
+            'records' => $records,
+            'count' => $count,
+            // 'count' => $prepareRecords->count(),
+        ];
 
         return view('search.search_books_result', $data);
     }
