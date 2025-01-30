@@ -7,7 +7,6 @@
     <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
 </div>
     <h1>書籍表示</h1>
-    <a href="/db/book_management_erase" class="btn btn-primary">戻る</a>
     <br>
     <table class="table">
         <tr>
@@ -23,5 +22,7 @@
         </tr>
         @endforeach
     </table>
+    <br>
+    {{$records->links()}}
     <a href="/db/book_management_erase" class="btn btn-primary">戻る</a>
 @endsection
