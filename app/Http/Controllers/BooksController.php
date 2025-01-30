@@ -116,7 +116,7 @@ class BooksController extends Controller
     // 書籍一覧画面
     public function index()
     {
-        $books = Book::paginate(10); // 1ページに10件ずつ書籍を表示
+        $books = Book::withAvg('reviews', 'rating')->paginate(10); // 1ページに10件ずつ書籍を表示
         return view('books.index', compact('books')); // ビューに渡す
     }
 
@@ -136,10 +136,7 @@ class BooksController extends Controller
         // $book_keyword = $req->get();
         $book_keyword = $req->book_keyword;
 
-        // $prepareRecords = Book::where('title', 'LIKE', "%$book_keyword%")->orWhere('author', 'LIKE', "%$book_keyword%");
-        // $records = $prepareRecords->paginate(10);
-
-        $records = Book::where('title', 'LIKE', "%$book_keyword%")->orWhere('author', 'LIKE', "%$book_keyword%")->paginate(10);
+        $records = Book::withAvg('reviews', 'rating')->where('title', 'LIKE', "%$book_keyword%")->orWhere('author', 'LIKE', "%$book_keyword%")->paginate(10);
 
         $count = Book::where('title', 'LIKE', "%$book_keyword%")->orWhere('author', 'LIKE', "%$book_keyword%")->count();
 

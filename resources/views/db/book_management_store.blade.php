@@ -6,7 +6,7 @@
     </div>
     <br>
     <h1>以下の書籍を登録しました</h1>
-    <table class="table">
+    <table class="table text-center">
         <tr><th>書籍名</th><th>著者名</th><th>出版日</th><th>ISBN</th></tr>
         <tr>
             <td>{{$book_name}}</td>

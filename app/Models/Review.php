@@ -18,7 +18,7 @@ class Review extends Model
         'rating', // 評価
         'comment', // コメント
         'u_id', // ログインID（ユーザーID）
-        'b_id', // 書籍ID 
+        'b_id', // 書籍ID
     ];
 
     // リレーションシップの設定
