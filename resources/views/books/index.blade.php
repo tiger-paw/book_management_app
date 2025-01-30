@@ -6,7 +6,7 @@
         <a href="{{ route('index') }}" class="btn btn-secondary">メニューに戻る</a>
     </div>
     <h1>書籍一覧</h1>
-    <table class="table text-center table-striped table-secondary">
+    <table class="table text-center table-striped">
         @if ($books->isEmpty()) <!-- 書籍がなければ -->
             <p>書籍はありません。</p>
         @else
