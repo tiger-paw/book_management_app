@@ -18,6 +18,10 @@
             <input type="text" class="orm-control" name="author_name" id="author_name" required>
         </div>
         <div class="mb-3">
+            <label for="isbn" ckass="form-label"><span style="margin-left: 0.8rem">ISBN：</label>
+            <input type="text" class="orm-control" name="isbn" id="isbn" required>
+        </div>
+        <div class="mb-3">
             <label for="detail_item" ckass="form-label">説明(詳細)</label>
             <textarea class="form-control" name="detail_item" id="detail_item" required></textarea>
         </div>
