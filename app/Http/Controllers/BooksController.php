@@ -41,13 +41,33 @@ class BooksController extends Controller
         if($req ->isMethod('get')){
             return view('db.book_management_erase');
         }elseif($req ->isMethod('post')){
+            $b_id= $req -> b_id;
             $data=[
-                'records' => Book::all()
+                'record' => Book::find($b_id)
             ];
-            return view('db.book_management_erase', $data);
-        } else {
-            redirect('/');
+            return view('db.book_management_erase',$data);
+        }else{
+            redirect('db.book_management_erase');
         }
+    }
+
+    public function delete(Request $req){
+        $books = Book::find($req ->b_id);
+        $books -> delete();
+        $data=[
+            'b_id' => $req -> b_id,
+            'b_title' => $req -> b_title,
+            'b_author' => $req -> b_author
+        ];
+        return view('db.book_management_delete',$data);
+    }
+
+    public function delete_index()
+    {
+        $data = [
+            'records' => Book::all()
+        ];
+        return view('db.book_management_delete_index', $data);
     }
 
     // 書籍一覧画面
