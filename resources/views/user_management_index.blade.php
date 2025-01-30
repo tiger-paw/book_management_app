@@ -9,9 +9,9 @@
     <p>行いたい処理を選択してください</p>
     <nav aria-label="breadcrumb">
     <ul class="breadcrumb">
-        <a href="/db/user_management_index" class="btn btn-outline-primary mx-2">全社員の一覧表示</a></li>
-        <a href="/db/user_management_create" class="btn btn-outline-primary mx-2">社員の新規登録</a></li>
-        <a href="/db/user_management_erase" class="btn btn-outline-primary mx-2">社員の削除</a>
+        <a href="/db/user_management_index" class="btn btn-outline-primary btn-lg mx-2">全社員の一覧表示</a></li>
+        <a href="/db/user_management_create" class="btn btn-outline-primary btn-lg mx-2">社員の新規登録</a></li>
+        <a href="/db/user_management_erase" class="btn btn-outline-primary btn-lg mx-2">社員の削除</a>
     </ul>
 
 @endsection
