@@ -25,11 +25,8 @@
             <a href="/" class="navbar-brand">書籍管理アプリ</a>
             <div class="ml-auto d-flex align-items-center">
                 @if (isset($userId) && isset($userName))
-                    <span class="text-light mr-3">ID: {{ $userId }}</span>
-                    <span class="text-light mr-3">{{ $userName }}</span>
-                @endif
-                {{-- ログインしていればログアウトリンクを表示し、していなければログアウトを表示しない --}}
-                @if (isset($userId) && isset($userName))
+                    <span style="margin-right: 1rem;" class="text-light mr-3">ID: {{ $userId }}</span>
+                    <span style="margin-right: 1rem;" class="text-light mr-3">{{ $userName }}</span>
                     <form action="/logout" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-outline-light">ログアウト</button>
