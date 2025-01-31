@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             DepartmentsTableSeeder::class,
             // UsersTableSeeder::class,
             HashedPasswordsUsersTableSeeder::class, // Usersと差替
-            BooksTableSeeder::class,
+            // BooksTableSeeder::class,
+            BookTableSeeder::class, // Booksから実在する書籍のデータに変更
             ReviewsTableSeeder::class,
         ]);
     }
